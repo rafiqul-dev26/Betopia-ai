@@ -12,7 +12,10 @@ enum SessionStatus { authenticated, unauthenticated }
 /// user between the authenticated and unauthenticated areas.
 @Riverpod(keepAlive: true)
 Future<SessionStatus> sessionStatus(Ref ref) async {
-  final hasSession = await ref.read(getSessionStatusUseCaseProvider).call();
-
-  return hasSession ? .authenticated : .unauthenticated;
+  try {
+    final hasSession = await ref.read(getSessionStatusUseCaseProvider).call();
+    return hasSession ? .authenticated : .unauthenticated;
+  } catch (_) {
+    return .unauthenticated;
+  }
 }

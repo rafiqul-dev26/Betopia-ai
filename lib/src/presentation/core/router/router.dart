@@ -14,7 +14,6 @@ import '../../features/onboarding/view/onboarding_page.dart';
 import '../../features/profile/view/profile_page.dart';
 import '../../features/splash/view/splash_page.dart';
 import '../widgets/startup/startup_widget.dart';
-import '../widgets/navigation_shell.dart';
 import '../widgets/not_found_screen.dart';
 import 'redirect_gate.dart';
 import 'router_state/router_state_provider.dart';
@@ -42,7 +41,7 @@ GoRouter goRouter(Ref ref) {
     routes: [
       ..._onboardingRoutes(ref),
       ..._authenticationRoutes(ref),
-      _shellRoutes(ref),
+      ..._homeRoutes(ref),
     ],
   );
 }

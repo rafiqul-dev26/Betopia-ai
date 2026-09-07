@@ -29,7 +29,7 @@ Routes routerState(Ref ref) {
 
   return switch (ref.watch(sessionStatusProvider)) {
     AsyncData(value: .authenticated) => .home,
-    AsyncData() => .login,
-    _ => .splash,
+    AsyncLoading() => .splash,
+    _ => .login,
   };
 }

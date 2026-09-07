@@ -10,5 +10,9 @@ part 'onboarding_status_provider.g.dart';
 /// provider stays a thin reactive wrapper over the use case.
 @Riverpod(keepAlive: true)
 bool onboardingStatus(Ref ref) {
-  return ref.read(getOnboardingStatusUseCaseProvider).call();
+  try {
+    return ref.read(getOnboardingStatusUseCaseProvider).call();
+  } catch (_) {
+    return false;
+  }
 }

@@ -19,12 +19,14 @@ class MyApp extends ConsumerWidget {
     return MediaQuery.withClampedTextScaling(
       maxScaleFactor: 1.5,
       child: MaterialApp.router(
+        title: 'Betopia AI',
+        debugShowCheckedModeBanner: false,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         locale: ref.watch(localizationProvider),
         theme: context.lightTheme,
         darkTheme: context.darkTheme,
-        themeMode: .system,
+        themeMode: ThemeMode.dark,
         routerConfig: ref.read(goRouterProvider),
       ),
     );

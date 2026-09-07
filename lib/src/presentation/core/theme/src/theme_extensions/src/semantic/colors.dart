@@ -54,21 +54,21 @@ class ColorExtension extends ThemeExtension<ColorExtension> {
       ),
       text = const ColorText._(
         onPrimary: _Neutral.s0,
-        defaultValue: _Neutral.s200,
-        strong: _Neutral.s100,
+        defaultValue: _Neutral.s0,
+        strong: _Neutral.s0,
         muted: _Neutral.s500,
-        onInverse: _Neutral.s900,
+        onInverse: _Neutral.s950,
         onInverseMuted: _Neutral.s700,
       ),
       border = const ColorBorder._(
-        defaultValue: _Neutral.s700,
-        subtle: _Neutral.s800,
+        defaultValue: _Neutral.s800,
+        subtle: _Neutral.s900,
       ),
       background = const ColorBackground._(
         surface: _Neutral.s900,
         canvas: _Neutral.s950,
         scrim: _Neutral.s950,
-        inverse: _Neutral.s100,
+        inverse: _Neutral.s0,
       ),
       status = const ColorStatus._(
         success: _Green.s500,

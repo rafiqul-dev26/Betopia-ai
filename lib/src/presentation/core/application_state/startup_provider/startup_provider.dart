@@ -13,7 +13,15 @@ Future<void> startup(Ref ref) async {
 
   await ref.watch(sharedPreferencesProvider.future);
 
-  await ref.read(localizationProvider.notifier).setCurrentLocal();
+  try {
+    await ref.read(localizationProvider.notifier).setCurrentLocal();
+  } catch (_) {
+    // Non-fatal, fallback to default English locale
+  }
 
-  await ref.read(restoreSessionUseCaseProvider).call();
+  try {
+    await ref.read(restoreSessionUseCaseProvider).call();
+  } catch (_) {
+    // Non-fatal, fallback to unauthenticated state
+  }
 }
