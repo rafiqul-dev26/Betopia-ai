@@ -1,0 +1,64 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'onboarding_status_provider.dart';
+
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+/// Whether the user has completed onboarding. `routerState` watches this;
+/// the onboarding page invalidates it after marking completion, which is
+/// what moves the gate forward. Reading the cache is cheap, so the
+/// provider stays a thin reactive wrapper over the use case.
+
+@ProviderFor(onboardingStatus)
+final onboardingStatusProvider = OnboardingStatusProvider._();
+
+/// Whether the user has completed onboarding. `routerState` watches this;
+/// the onboarding page invalidates it after marking completion, which is
+/// what moves the gate forward. Reading the cache is cheap, so the
+/// provider stays a thin reactive wrapper over the use case.
+
+final class OnboardingStatusProvider
+    extends $FunctionalProvider<bool, bool, bool>
+    with $Provider<bool> {
+  /// Whether the user has completed onboarding. `routerState` watches this;
+  /// the onboarding page invalidates it after marking completion, which is
+  /// what moves the gate forward. Reading the cache is cheap, so the
+  /// provider stays a thin reactive wrapper over the use case.
+  OnboardingStatusProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'onboardingStatusProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$onboardingStatusHash();
+
+  @$internal
+  @override
+  $ProviderElement<bool> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  bool create(Ref ref) {
+    return onboardingStatus(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(bool value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<bool>(value),
+    );
+  }
+}
+
+String _$onboardingStatusHash() => r'9e9ea37efffa11196374c97d4a87b4d57bb9de24';
