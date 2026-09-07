@@ -1,475 +1,225 @@
-# Flutter Template
+# Betopia AI 🤖
 
-**A production-ready Flutter application template built with Clean Architecture principles**
+**A production-ready Conversational AI Assistant application built with Flutter and Clean Architecture.**
 
-A comprehensive, scalable foundation for building maintainable Flutter applications. This template provides a well-structured codebase with authentication, navigation, state management, and modern development practices out of the box.
+Betopia AI is a modern, high-performance mobile application designed to deliver an intelligent, seamless conversational AI experience. Built on top of **Clean Architecture** principles, it leverages **Riverpod** for robust state management, **GoRouter** for declarative navigation, and a structured network layer designed for LLM APIs (OpenAI, Gemini, Claude, or custom backend endpoints).
 
-## Key Features
+---
 
-- **Clean Architecture**: Layered architecture with clear separation of concerns
-- **Complete Authentication**: Login, registration, password reset, and remember me functionality
-- **Modern Navigation**: Declarative routing with go_router and deep linking support
-- **Comprehensive Theming**: Light/dark mode with extensible theme system
-- **State Management**: Riverpod with dependency injection and code generation
-- **Robust Network Layer**: Retrofit + Dio with interceptors and error handling
-- **Production Ready**: Optimized for scalability and maintainability
+## 🌟 Key Features
 
-![Flutter](https://img.shields.io/badge/Flutter->=3.38.4-blue.svg)
-![Dart](https://img.shields.io/badge/Dart->=3.10.3-blue.svg)
+### 💬 Intelligent Conversational Interface
+- **Real-time AI Chat**: Smooth multi-turn chat experience with user & assistant message bubbles.
+- **Rich Markdown & Code Rendering**: Formatted text, tables, bullet points, and syntax-highlighted code blocks with quick-copy buttons.
+- **Chat History & Session Management**: Organize chats by conversations, start new chats, rename topics, and delete old sessions.
+- **Smart Prompt Starters**: Quick suggested prompts and inspiration topics for fast interactions.
+- **Dynamic Typing Indicators**: Animated feedback during AI response generation.
+
+### 🔐 Authentication & User Management
+- **Full Auth Flow**: Login, registration, password reset, and logout workflows.
+- **Session Persistence**: Secure token management with `flutter_secure_storage` and "Remember Me" capabilities.
+- **Profile & Settings**: User preferences, theme toggle, and account details.
+
+### 🎨 Premium UI & Theming
+- **Modern AI-Powered Design**: Clean, minimal, distraction-free conversational UI.
+- **Adaptive Dark & Light Modes**: Comprehensive theme system with semantic tokens and custom extensions.
+- **Multi-Language Localization**: Built-in internationalization (English, Bangla, Arabic) with runtime switching.
+
+### 🏗 Enterprise-Grade Architecture
+- **Clean Architecture**: Decoupled layers (`core`, `domain`, `data`, `presentation`) for testability and scalability.
+- **Riverpod 3 + Codegen**: Predictable, type-safe reactive state management with auto-dispose and dependency injection.
+- **Resilient Network Layer**: Dio + Retrofit with interceptors, token refresh, and custom error classifiers.
+
+---
+
+## 📸 Badges
+
+![Flutter](https://img.shields.io/badge/Flutter->=3.38.4-02569B?logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart->=3.12.0-0175C2?logo=dart&logoColor=white)
+![Riverpod](https://img.shields.io/badge/State_Management-Riverpod_3-blue)
+![Architecture](https://img.shields.io/badge/Architecture-Clean_Architecture-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
-![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/momshaddinury/flutter_template?utm_source=oss&utm_medium=github&utm_campaign=momshaddinury%2Fflutter_template&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
 
-## Quick Start
+---
+
+## 🛠 Technology Stack
+
+### Core Framework & State Management
+| Technology | Package | Purpose |
+|------------|---------|---------|
+| **Flutter** | `sdk: flutter` | Cross-platform UI toolkit |
+| **Dart** | `>=3.12.0` | Modern, null-safe programming language |
+| **Flutter Riverpod** | `^3.3.2` | Reactive state management & dependency injection |
+| **Riverpod Annotation** | `^4.0.3` | Code generation for type-safe providers |
+| **GoRouter** | `^17.4.0` | Declarative routing, deep-linking, & route guards |
+
+### Networking & Data Persistence
+| Technology | Package | Purpose |
+|------------|---------|---------|
+| **Dio** | `^5.11.0` | Powerful HTTP networking client with interceptors |
+| **Retrofit** | `^4.9.2` | Type-safe REST client generator |
+| **Flutter Secure Storage** | `^11.0.0` | Encrypted local storage for auth tokens & API keys |
+| **SharedPreferences** | `^2.5.5` | Key-value storage for app settings and preferences |
+| **Dart Mappable** / **Freezed** | `^4.8.0` / `^3.1.0` | Immutable data modeling & JSON serialization |
+
+### UI & Utilities
+| Technology | Package | Purpose |
+|------------|---------|---------|
+| **Gap** | `^3.0.1` | Clean, readable widget spacing |
+| **Flutter SVG** | `^2.3.0` | Vector asset rendering |
+| **Logger** / **Pretty Dio Logger** | `^2.7.0` / `^1.4.0` | Structured runtime and network logging |
+| **Intl** | `^0.20.2` | Date formatting and multi-language localization |
+
+---
+
+## 🏛 Architecture Overview
+
+Betopia AI follows the **Clean Architecture** pattern to guarantee maintainability, testability, and independence from external frameworks:
+
+```
+lib/src/
+├── core/                   # Shared utilities, base classes, themes, DI & localization
+│   ├── base/               # Base view models, use cases, and contracts
+│   ├── di/                 # Riverpod dependency injection definitions
+│   ├── extensions/         # Context, string, and theme extensions
+│   ├── localization/       # l10n configuration & translations (en, bn, ar)
+│   └── logger/             # App logging setup
+│
+├── domain/                 # Pure business logic (framework independent)
+│   ├── entities/           # Core models (User, ChatSession, Message, Prompt)
+│   ├── repositories/       # Abstract repository interfaces
+│   └── use_cases/          # Business logic use cases (SendMessage, GetChatHistory, etc.)
+│
+├── data/                   # Data implementation & external communications
+│   ├── models/             # DTOs with JSON serialization (dart_mappable / freezed)
+│   ├── repositories/       # Concrete repository implementations
+│   └── services/           # Network REST client (Retrofit), LLM services & local storage
+│
+└── presentation/           # UI Layer (widgets, screens, controllers)
+    ├── core/               # App-wide widgets, design system & router
+    │   ├── router/         # GoRouter configuration & route guards
+    │   ├── theme/          # Color schemes, typography, and theme extensions
+    │   └── widgets/        # Shared buttons, inputs, loaders, dialogs
+    └── features/           # Feature-driven UI modules
+        ├── authentication/ # Sign In, Sign Up, Forgot Password
+        ├── home/           # Chat list, new chat, and assistant selection
+        ├── onboarding/     # Intro screens & model walkthrough
+        ├── profile/        # User settings, theme toggle, API keys
+        └── splash/         # App boot & auth gate checks
+```
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- **Flutter SDK**: >=3.38.4
-- **Dart SDK**: >=3.10.3  
-- **Android Studio** or **VS Code** with Flutter extensions
-- **Git** for version control
+- **Flutter SDK**: `>= 3.38.4`
+- **Dart SDK**: `>= 3.12.0`
+- **IDE**: Android Studio / VS Code with Flutter & Dart extensions
+- **AI Backend / API Key**: OpenAI API Key, Google Gemini API Key, or your custom LLM backend endpoint.
 
 ### Installation
 
-1. **Clone the repository**
+1. **Clone the repository**:
    ```bash
-   git clone <your-repository-url>
-   cd flutter_template
+   git clone https://github.com/your-username/betopia_ai.git
+   cd betopia_ai
    ```
 
-2. **Install dependencies**
+2. **Install Flutter dependencies**:
    ```bash
    flutter pub get
    ```
 
-3. **Generate code**
+3. **Run Code Generation**:
+   Generate Riverpod providers, serialization models, and asset bindings:
    ```bash
    dart run build_runner build --delete-conflicting-outputs
    ```
 
-4. **Run the application**
+4. **Launch the application**:
    ```bash
    flutter run
    ```
 
-### Development Setup
+---
 
-For continuous code generation during development:
-```bash
-dart run build_runner watch --delete-conflicting-outputs
-```
+## ⚙️ AI Configuration & LLM Integration
 
-## Architecture Overview
+Betopia AI is designed to connect easily with major AI providers:
 
-This template implements **Clean Architecture** principles with a layered approach that promotes separation of concerns, testability, and maintainability.
-
-### Architecture Layers
-
-```
-lib/src/
-├── core/           # Core utilities and dependency injection
-├── domain/         # Business logic and entities
-├── data/           # Data sources and repository implementations  
-└── presentation/   # UI components and state management
-```
-
-#### Core Layer
-- **Dependency Injection**: Riverpod-based modular DI system
-- **Base Classes**: Common interfaces and abstract classes
-- **Extensions**: Utility extensions for enhanced functionality
-- **Logging**: Centralized logging configuration
-- **Localization**:
-   * Multi-language support (English, Bangla, Arabic)
-   * Runtime language switching with persisted preferences
-   * Localized validation and error messages
-- **Validation Contracts**: Centralized validators for form fields (email, password, required fields, length constraints) — fully localized
-
-#### Domain Layer
-- **Entities**: Core business objects (User, Login, SignUp)
-- **Repositories**: Abstract interfaces for data operations
-- **Use Cases**: Business logic implementation (Login, Register, Logout)
-
-#### Data Layer
-- **Models**: Data transfer objects with serialization
-- **Repositories**: Repository interface implementations
-- **Services**: Network (REST API) and local storage services
-- **Interceptors**: Token management and exception handling
-
-#### Presentation Layer
-- **Features**: Feature-based UI organization
-- **Routing**: go_router configuration with nested routes
-- **State Management**: Riverpod providers and notifiers
-- **Theming**: Comprehensive theme system with extensions
-- **Color System**:
-   - `primitive.dart` for base color values
-   - integrates Figma semantic tokens into `ThemeExtension`
-
-
-#### Development Tooling
-*  Custom Linter — flutter_guardian
-*  A standalone custom linter package to enforce naming conventions and structure for dependency injection layers
-*  Validates naming for repositories, services, and use cases
-
-## Project Structure
-
-```
-flutter_template/
-├── android/                 # Android-specific configuration
-├── ios/                     # iOS-specific configuration
-├── assets/                  # Images, icons, and other assets
-├── docs/                    # Project documentation
-│   ├── architecture.md         # Architecture documentation
-│   ├── dependency_injection.md # DI system documentation
-│   ├── network.md              # Network layer guide
-│   └── router.md               # Routing and gate model guide
-├── lib/
-│   ├── src/
-│   │   ├── core/               # Core utilities
-│   │   │   ├── base/           # Base classes and interfaces
-│   │   │   ├── di/             # Dependency injection
-│   │   │   ├── extensions/     # Extension methods
-│   │   │   └── logger/         # Logging configuration
-│   │   ├── domain/             # Business logic layer
-│   │   │   ├── entities/       # Business entities
-│   │   │   ├── repositories/   # Repository interfaces
-│   │   │   └── use_cases/      # Business use cases
-│   │   ├── data/               # Data layer
-│   │   │   ├── models/         # Data models
-│   │   │   ├── repositories/   # Repository implementations
-│   │   │   └── services/       # External services
-│   │   └── presentation/       # UI layer
-│   │       ├── core/           # Core UI components
-│   │       │   ├── router/     # Navigation configuration
-│   │       │   ├── theme/      # Theme system
-│   │       │   └── widgets/    # Reusable widgets
-│   │       └── features/       # Feature-specific UI
-│   │           ├── authentication/ # Login, register, etc.
-│   │           ├── home/       # Home screen
-│   │           ├── profile/    # User profile
-│   │           └── onboarding/ # App onboarding
-│   └── main.dart               # Application entry point
-├── test/                    # Test files
-├── pubspec.yaml             # Dependencies and configuration
-└── README.md                # This file
-```
-
-## Technology Stack
-
-### Core Technologies
-
-| Technology | Version  | Purpose |
-|------------|----------|---------|
-| **Flutter** | >=3.44.9 | UI framework |
-| **Dart** | >=3.12.0 | Programming language |
-| **Riverpod** | ^3.3.2   | State management & DI |
-| **go_router** | ^17.4.0  | Navigation and routing |
-
-### Network & Data
-
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **Dio** | ^5.11.0 | HTTP client |
-| **Retrofit** | ^4.9.2 | REST API client generator |
-| **SharedPreferences** | ^2.5.5 | Local storage |
-| **flutter_secure_storage** | ^11.0.0 | Token storage |
-| **dart_mappable** | ^4.8.0 | JSON serialization |
-
-### Development Tools
-
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **build_runner** | ^2.15.1 | Code generation |
-| **flutter_lints** | ^6.0.0 | Code analysis |
-| **logger** | ^2.7.0 | Logging |
-| **pretty_dio_logger** | ^1.4.0 | Network logging (debug builds) |
-
-## Features Implementation
-
-### Authentication System
-- **Login**: Email/password authentication with validation
-- **Registration**: User signup with form validation
-- **Password Reset**: Complete forgot password flow
-- **Remember Me**: Opting in keeps the stored tokens across restarts; opting out clears them on the next launch
-- **Logout**: Secure session termination
-- **Token Management**: Automatic token refresh and storage
-
-### Navigation & Routing
-- **Declarative Routing**: Type-safe navigation with go_router
-- **Nested Routes**: Complex navigation hierarchies
-- **Route Guards**: A single derived gate covering startup, onboarding, and authentication
-- **Deep Linking**: URL-based navigation support
-- **Shell Routes**: Persistent navigation elements
-
-### State Management
-- **Riverpod Providers**: Dependency injection and state management
-- **Code Generation**: Automated provider generation
-- **State Notifiers**: Complex state management patterns
-- **Auto Dispose**: Automatic resource cleanup
-
-### UI/UX Features
-- **Responsive Design**: Adaptive layouts for different screen sizes
-- **Theme System**: Comprehensive theming with light/dark modes
-- **Custom Widgets**: Reusable UI components
-- **Loading States**: Consistent loading indicators
-- **Error Handling**: User-friendly error messages
-
-## Development Guidelines
-
-### Code Generation
-
-Run code generation after making changes to annotated files:
-```bash
-# One-time generation
-dart run build_runner build --delete-conflicting-outputs
-
-# Watch mode for development
-dart run build_runner watch --delete-conflicting-outputs
-```
-
-### Adding New Features
-
-1. **Create Domain Layer**
-   ```dart
-   // 1. Define entity in domain/entities/
-   // 2. Create repository interface in domain/repositories/
-   // 3. Implement use cases in domain/use_cases/
-   ```
-
-2. **Implement Data Layer**
-   ```dart
-   // 1. Create model in data/models/
-   // 2. Implement repository in data/repositories/
-   // 3. Add service methods if needed
-   ```
-
-3. **Build Presentation Layer**
-   ```dart
-   // 1. Create feature directory in presentation/features/
-   // 2. Implement providers for state management
-   // 3. Build UI components and pages
-   ```
-
-4. **Register Dependencies**
-   ```dart
-   // Add providers in core/di/parts/
-   ```
-
-### State Management Best Practices
+### Connecting to OpenAI / LLM APIs
+Set your base URL and API keys in your environment configuration or securely in app settings:
 
 ```dart
-// Use @riverpod annotation for providers
-@riverpod
-UserRepository userRepository(UserRepositoryRef ref) {
-  return UserRepositoryImpl(
-    client: ref.read(restClientProvider),
-  );
-}
-
-// Use StateNotifier for complex state
-@riverpod
-class UserState extends _$UserState {
-  @override
-  User? build() => null;
-
-  void setUser(User user) => state = user;
-}
-```
-
-### Adding New Routes
-
-Add a member to the `Routes` enum, register it in the matching `parts/<feature>_routes.dart` file, and decide how the gate treats it. The full recipe, the gate model, and the navigation rules are in [docs/router.md](docs/router.md).
-
-## Configuration
-
-### Environment Setup
-
-1. **Flutter Doctor**: Ensure Flutter is properly installed
-   ```bash
-   flutter doctor
-   ```
-
-2. **IDE Setup**: Configure your IDE with Flutter extensions
-   - **VS Code**: Flutter and Dart extensions
-   - **Android Studio**: Flutter plugin
-
-3. **Platform Setup**: Configure platform-specific settings
-   - **Android**: Update `android/app/build.gradle`
-   - **iOS**: Update `ios/Runner/Info.plist`
-
-### Build Configuration
-
-```yaml
-# pubspec.yaml - Key configuration sections
-name: flutter_template
-version: 1.0.0+1
-
-environment:
-  sdk: ^3.10.3
-  flutter: '>=3.38.4'
-
-# Code generation configuration
-flutter_gen:
-  output: lib/src/presentation/core/gen
-  line_length: 80
-  integrations:
-    flutter_svg: true
-```
-
-### Adding Dependencies
-
-1. **Add to pubspec.yaml**
-   ```yaml
-   dependencies:
-     new_package: ^1.0.0
-   ```
-
-2. **Install dependencies**
-   ```bash
-   flutter pub get
-   ```
-
-3. **Register in DI system** (if needed)
-   ```dart
-   @riverpod
-   NewService newService(NewServiceRef ref) {
-     return NewServiceImpl();
-   }
-   ```
-
-## Documentation
-
-### Available Documentation
-- **[Dependency Injection](docs/dependency_injection.md)**: DI system documentation
-
-### Code Documentation
-- **Inline Comments**: Comprehensive code documentation
-- **API Documentation**: Generated from code comments
-- **Architecture Decision Records**: Major architectural decisions
-
-## Testing
-
-### Test Structure
-
-`test/` mirrors `lib/src`:
-
-```
-test/
-├── core/
-│   └── di/                  # Dependency-injection defaults
-├── data/
-│   ├── failures/            # Exception classifier
-│   └── services/network/    # Transport, auth, interceptors (+ shared helpers.dart)
-└── integration/             # Live smoke runs, excluded from normal runs
-```
-
-### Running Tests
-```bash
-# Run all tests
-flutter test
-
-# Run specific test file
-flutter test test/data/services/network/auth/token_manager_test.dart
-
-# Run the live smoke tests against the demo API (manual)
-flutter test test/integration/dummyjson_smoke.dart
-
-# Run with coverage
-flutter test --coverage
-```
-
-### Testing Best Practices
-- **Mock Dependencies**: Use Riverpod's override for testing
-- **Widget Testing**: Test UI components in isolation
-- **Integration Testing**: Test complete user flows
-
-## Advanced Topics
-
-### Custom Dependency Injection
-
-```dart
-// Create custom providers
-@riverpod
-class AppStateNotifier extends _$AppStateNotifier {
-  @override
-  AppState build() => AppState.initial();
-  
-  void updateState(AppState newState) {
-    state = newState;
-  }
-}
-
-// Override for testing
-final container = ProviderContainer(
-  overrides: [
-    appStateNotifierProvider.overrideWith(() => MockAppStateNotifier()),
+// Example: Chat Completion Request
+final request = ChatCompletionRequest(
+  model: 'gpt-4o-mini', // or 'gpt-4o' / 'gpt-3.5-turbo'
+  messages: [
+    ChatMessage(role: 'system', content: 'You are Betopia AI, a helpful AI assistant.'),
+    ChatMessage(role: 'user', content: userPrompt),
   ],
+  temperature: 0.7,
 );
 ```
 
-### Custom Theming
-
-```dart
-// Extend theme system
-extension CustomTheme on BuildContext {
-  MyCustomExtension get customTheme => 
-    Theme.of(this).extension<MyCustomExtension>()!;
-}
+### Continuous Code Generation (Watch Mode)
+When developing or adding new providers and models, keep the generator running:
+```bash
+dart run build_runner watch --delete-conflicting-outputs
 ```
-
-### Performance Optimization
-
-- **AutoDispose**: Use for providers that should be disposed
-- **KeepAlive**: Use for providers that should persist
-- **Selectors**: Use `select` for optimized rebuilds
-- **Lazy Loading**: Implement lazy loading for large datasets
-
-## Contributing
-
-We welcome contributions! Please follow these guidelines:
-
-1. **Fork the repository**
-2. **Create a feature branch**
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-3. **Make your changes**
-4. **Run tests and ensure code quality**
-   ```bash
-   flutter test
-   flutter analyze
-   ```
-5. **Commit with conventional commits**
-   ```bash
-   git commit -m "feat: add amazing feature"
-   ```
-6. **Push to your fork and create a Pull Request**
-
-### Code Style
-- Follow [Flutter Style Guide](https://flutter.dev/docs/development/tools/formatting)
-- Use provided linting rules
-- Add tests for new features
-- Update documentation
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- **Flutter Team**: For the incredible framework
-- **Riverpod Contributors**: For excellent state management
-- **Community**: For packages and inspiration
-
-## Support
-
-- **Documentation**: Check the [docs](docs/) folder for detailed guides
-- **Issues**: Report bugs and request features via GitHub Issues
-- **Discussions**: Join GitHub Discussions for questions and community
-
-## Roadmap
-
-- [ ] **Enhanced Testing**: More comprehensive test coverage
-- [ ] **CI/CD Pipeline**: GitHub Actions for automated testing and deployment
 
 ---
 
-**Happy coding!** 🎉 If you found this template helpful, please consider giving it a star ⭐️ 
+## 🧪 Testing
+
+The repository contains automated unit and integration tests mirroring the `lib/src` structure:
+
+```bash
+# Run all unit and widget tests
+flutter test
+
+# Run tests with coverage
+flutter test --coverage
+
+# Run specific test suite
+flutter test test/data/services/network/auth/token_manager_test.dart
+```
+
+---
+
+## 🗺 Roadmap
+
+- [x] Clean Architecture setup with Riverpod 3 & Codegen
+- [x] Complete Authentication flow & Secure Token Storage
+- [x] Interactive Chat UI with message history
+- [ ] Real-time SSE / WebSocket streaming for word-by-word AI generation
+- [ ] Voice input & Speech-to-Text (STT) integration
+- [ ] Image understanding / Vision model input (Multimodal AI)
+- [ ] Export chat history (PDF, Markdown, JSON)
+- [ ] Offline local model execution with on-device LLMs
+
+---
+
+## 🤝 Contributing
+
+Contributions make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'feat: Add AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
+
+---
+
+<p align="center">
+  Built with ❤️ for AI developers by the Betopia Team.
+</p>

@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/src/core/di/dependency_injection.dart';
+import 'package:betopia_ai/src/core/di/dependency_injection.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 

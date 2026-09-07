@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_template/src/data/services/network/config/network_config.dart';
-import 'package:flutter_template/src/data/services/network/config/server_error_parser.dart';
-import 'package:flutter_template/src/data/services/network/endpoints.dart';
-import 'package:flutter_template/src/data/services/network/rest_client.dart';
-import 'package:flutter_template/src/data/services/network/transport/dio_builder.dart';
+import 'package:betopia_ai/src/data/services/network/config/network_config.dart';
+import 'package:betopia_ai/src/data/services/network/config/server_error_parser.dart';
+import 'package:betopia_ai/src/data/services/network/endpoints.dart';
+import 'package:betopia_ai/src/data/services/network/rest_client.dart';
+import 'package:betopia_ai/src/data/services/network/transport/dio_builder.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../data/services/network/helpers.dart';

@@ -1,7 +1,7 @@
-import 'package:flutter_template/src/core/base/result.dart';
-import 'package:flutter_template/src/data/base/repository.dart';
-import 'package:flutter_template/src/data/failures/infra_failure.dart';
-import 'package:flutter_template/src/domain/failures/business_failure.dart';
+import 'package:betopia_ai/src/core/base/result.dart';
+import 'package:betopia_ai/src/data/base/repository.dart';
+import 'package:betopia_ai/src/data/failures/infra_failure.dart';
+import 'package:betopia_ai/src/domain/failures/business_failure.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../core/base/fake_crash_reporter.dart';

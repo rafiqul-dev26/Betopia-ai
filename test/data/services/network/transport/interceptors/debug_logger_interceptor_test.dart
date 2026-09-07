@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_template/src/data/services/network/transport/interceptors/debug_logger_interceptor.dart';
+import 'package:betopia_ai/src/data/services/network/transport/interceptors/debug_logger_interceptor.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 

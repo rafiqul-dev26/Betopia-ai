@@ -1,8 +1,8 @@
 import 'dart:ui' show ErrorCallback;
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter_template/src/core/bootstrap.dart';
-import 'package:flutter_template/src/core/di/dependency_injection.dart';
+import 'package:betopia_ai/src/core/bootstrap.dart';
+import 'package:betopia_ai/src/core/di/dependency_injection.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/src/core/di/dependency_injection.dart';
-import 'package:flutter_template/src/data/services/network/auth/token_manager.dart';
-import 'package:flutter_template/src/data/services/network/endpoints.dart';
-import 'package:flutter_template/src/data/services/network/request_auth.dart';
+import 'package:betopia_ai/src/core/di/dependency_injection.dart';
+import 'package:betopia_ai/src/data/services/network/auth/token_manager.dart';
+import 'package:betopia_ai/src/data/services/network/endpoints.dart';
+import 'package:betopia_ai/src/data/services/network/request_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 

@@ -1,9 +1,9 @@
+import 'package:betopia_ai/src/core/gen/l10n/app_localizations.dart';
+import 'package:betopia_ai/src/domain/failures/business_failure.dart';
+import 'package:betopia_ai/src/presentation/core/theme/theme.dart';
+import 'package:betopia_ai/src/presentation/core/widgets/failure_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/src/core/gen/l10n/app_localizations.dart';
-import 'package:flutter_template/src/domain/failures/business_failure.dart';
-import 'package:flutter_template/src/presentation/core/theme/theme.dart';
-import 'package:flutter_template/src/presentation/core/widgets/failure_view.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

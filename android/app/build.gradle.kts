@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.dinurymomshad.flutter_template"
+    namespace = "com.dinurymomshad.betopia_ai"
     // WHY: flutter_secure_storage 11 ships an AAR built against API 37;
     // the Flutter default (36) fails AAR metadata checks. AGP 9.0.1 allows
     // 37 with an acknowledgment flag in gradle.properties.
@@ -19,7 +19,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.dinurymomshad.flutter_template"
+        applicationId = "com.dinurymomshad.betopia_ai"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/src/core/base/crash_reporter.dart';
-import 'package:flutter_template/src/core/di/dependency_injection.dart';
+import 'package:betopia_ai/src/core/base/crash_reporter.dart';
+import 'package:betopia_ai/src/core/di/dependency_injection.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

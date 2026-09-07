@@ -1,5 +1,5 @@
-import 'package:flutter_template/src/presentation/core/router/redirect_gate.dart';
-import 'package:flutter_template/src/presentation/core/router/routes.dart';
+import 'package:betopia_ai/src/presentation/core/router/redirect_gate.dart';
+import 'package:betopia_ai/src/presentation/core/router/routes.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

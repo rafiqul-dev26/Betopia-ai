@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_template/src/data/failures/exception_classifier.dart';
-import 'package:flutter_template/src/data/failures/infra_failure.dart';
-import 'package:flutter_template/src/data/services/network/config/server_error_parser.dart';
-import 'package:flutter_template/src/data/services/network/exceptions.dart';
+import 'package:betopia_ai/src/data/failures/exception_classifier.dart';
+import 'package:betopia_ai/src/data/failures/infra_failure.dart';
+import 'package:betopia_ai/src/data/services/network/config/server_error_parser.dart';
+import 'package:betopia_ai/src/data/services/network/exceptions.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 DioException _dio(

@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_template/src/data/services/network/auth/token_store.dart';
-import 'package:flutter_template/src/data/services/network/config/network_config.dart';
-import 'package:flutter_template/src/data/services/network/config/server_error_parser.dart';
-import 'package:flutter_template/src/data/services/network/request_auth.dart';
-import 'package:flutter_template/src/data/services/network/transport/dio_builder.dart';
-import 'package:flutter_template/src/data/services/network/transport/interceptors/locale_header_interceptor.dart';
+import 'package:betopia_ai/src/data/services/network/auth/token_store.dart';
+import 'package:betopia_ai/src/data/services/network/config/network_config.dart';
+import 'package:betopia_ai/src/data/services/network/config/server_error_parser.dart';
+import 'package:betopia_ai/src/data/services/network/request_auth.dart';
+import 'package:betopia_ai/src/data/services/network/transport/dio_builder.dart';
+import 'package:betopia_ai/src/data/services/network/transport/interceptors/locale_header_interceptor.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 

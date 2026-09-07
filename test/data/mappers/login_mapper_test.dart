@@ -1,5 +1,5 @@
-import 'package:flutter_template/src/data/mappers/login_mapper.dart';
-import 'package:flutter_template/src/data/models/login_model.dart';
+import 'package:betopia_ai/src/data/mappers/login_mapper.dart';
+import 'package:betopia_ai/src/data/models/login_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

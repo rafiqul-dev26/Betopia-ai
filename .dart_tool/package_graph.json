@@ -1,10 +1,10 @@
 {
   "roots": [
-    "flutter_template"
+    "betopia_ai"
   ],
   "packages": [
     {
-      "name": "flutter_template",
+      "name": "betopia_ai",
       "version": "1.0.0+1",
       "dependencies": [
         "cupertino_icons",

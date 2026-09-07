@@ -1,4 +1,4 @@
-package com.dinurymomshad.flutter_template
+package com.dinurymomshad.betopia_ai
 
 import io.flutter.embedding.android.FlutterActivity
 

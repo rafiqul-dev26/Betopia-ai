@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_template/src/data/services/network/auth/token_store.dart';
-import 'package:flutter_template/src/data/services/network/request_auth.dart';
+import 'package:betopia_ai/src/data/services/network/auth/token_store.dart';
+import 'package:betopia_ai/src/data/services/network/request_auth.dart';
 
 const testBaseUrl = 'https://test.local';
 const testRefreshPath = '/auth/refresh';
