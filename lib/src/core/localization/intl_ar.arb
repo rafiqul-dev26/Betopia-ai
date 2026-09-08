@@ -196,7 +196,24 @@
     "auto": "تلقائي",
     "agent": "الوكيل",
     "commands": "الأوامر",
-    "signOut": "تسجيل الخروج"
+    "signOut": "تسجيل الخروج",
+    "selectSsoProvider": "اختر مزود SSO",
+    "ssoLoginTitle": "تسجيل الدخول الموحد للمؤسسات",
+    "ssoLoginSubtitle": "حدد مزود الهوية الخاص بمؤسستك للمتابعة",
+    "noSsoProvidersFound": "لا يوجد مزودو SSO مهيأون حالياً.",
+    "authenticatingWithSso": "جارٍ المصادقة باستخدام SSO...",
+    "enterAuthTicket": "أدخل تذكرة المصادقة",
+    "enterAuthTicketHint": "الصق تذكرة المصادقة المستلمة",
+    "exchangeTicket": "تبديل وتسجيل الدخول",
+    "ssoFailed": "فشلت مصادقة SSO",
+    "signInWithFingerprint": "تسجيل الدخول بالبصمة الحيوية",
+    "biometricPromptReason": "المصادقة باستخدام بصمة الإصبع أو الوجه للوصول إلى Betopia AI",
+    "biometricsNotAvailable": "المصادقة البيومترية غير متوفرة أو غير مسجلة على هذا الجهاز.",
+    "fingerprintAuthFailed": "فشلت المصادقة البيومترية.",
+    "biometricsEnabled": "تم تمكين البصمة الحيوية",
+    "authenticatingBiometrics": "جارٍ المصادقة بالبصمة...",
+    "ssoBrowserTitle": "تسجيل الدخول عبر SSO",
+    "authenticatingSso": "جارٍ إكمال مصادقة SSO..."
 }
 
 

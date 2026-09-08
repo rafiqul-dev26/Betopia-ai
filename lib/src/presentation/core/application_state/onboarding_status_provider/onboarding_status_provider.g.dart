@@ -61,4 +61,4 @@ final class OnboardingStatusProvider
   }
 }
 
-String _$onboardingStatusHash() => r'9e9ea37efffa11196374c97d4a87b4d57bb9de24';
+String _$onboardingStatusHash() => r'05c076f2ddbf1aca13f782966c584de05b6b0d0b';

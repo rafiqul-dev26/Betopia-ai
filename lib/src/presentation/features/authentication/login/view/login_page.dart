@@ -12,6 +12,9 @@ import '../../../onboarding/widgets/betopia_auth_card.dart';
 import '../../../onboarding/widgets/betopia_hero_view.dart';
 import '../riverpod/login_provider.dart';
 
+import '../../biometrics/riverpod/biometrics_provider.dart';
+import '../../sso/widgets/sso_provider_dialog.dart';
+
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
 
@@ -22,10 +25,12 @@ class LoginPage extends ConsumerStatefulWidget {
 class _LoginPageState extends ConsumerState<LoginPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  bool _canCheckBiometrics = false;
 
   @override
   void initState() {
     super.initState();
+    _checkBiometrics();
 
     ref.listenManual(loginProvider, (previous, next) {
       switch (next) {
@@ -57,6 +62,26 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         default:
       }
     });
+  }
+
+  Future<void> _checkBiometrics() async {
+    final available =
+        await ref.read(biometricsProvider.notifier).checkAvailability();
+    if (mounted) {
+      setState(() => _canCheckBiometrics = available);
+    }
+  }
+
+  Future<void> _onBiometricSignIn() async {
+    final success = await ref
+        .read(biometricsProvider.notifier)
+        .authenticateAndLogin(
+          localizedReason: context.locale.biometricPromptReason,
+        );
+
+    if (success && mounted) {
+      context.go(Routes.home.path);
+    }
   }
 
   @override
@@ -98,6 +123,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     context.pushNamed(Routes.resetPassword.name);
   }
 
+  void _onSsoSignIn() {
+    SsoProviderDialog.show(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(loginProvider);
@@ -126,6 +155,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     onSignIn: _onSignIn,
                     onSignUp: _onSignUp,
                     onForgotPassword: _onForgotPassword,
+                    onSsoSignIn: _onSsoSignIn,
+                    onBiometricSignIn:
+                        _canCheckBiometrics ? _onBiometricSignIn : null,
                   ),
                 ),
               ],
@@ -139,6 +171,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 onSignIn: _onSignIn,
                 onSignUp: _onSignUp,
                 onForgotPassword: _onForgotPassword,
+                onSsoSignIn: _onSsoSignIn,
+                onBiometricSignIn:
+                    _canCheckBiometrics ? _onBiometricSignIn : null,
               ),
             ),
     );

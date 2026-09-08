@@ -88,4 +88,4 @@ final class RouterStateProvider
   }
 }
 
-String _$routerStateHash() => r'5aace763e3b481f0b5199d81e4e04fbd55cb76f9';
+String _$routerStateHash() => r'd2f90d33dd4e0398ea264eab105cc11bef2a3379';

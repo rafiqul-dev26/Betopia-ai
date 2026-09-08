@@ -11,3 +11,8 @@ CacheService cacheService(Ref ref) {
 RestClient restClientService(Ref ref) {
   return RestClient(ref.watch(networkStackProvider).transport);
 }
+
+@Riverpod(keepAlive: true)
+BiometricsService biometricsService(Ref ref) {
+  return BiometricsServiceImpl();
+}

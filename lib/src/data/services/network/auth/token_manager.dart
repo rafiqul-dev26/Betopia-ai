@@ -157,16 +157,18 @@ class TokenManager {
       throw StateError('Refresh response was not a JSON object');
     }
 
-    final newAccess = data['accessToken'];
-    if (newAccess is! String || newAccess.isEmpty) {
+    final newAccess =
+        (data['access_token'] ?? data['accessToken']) as String?;
+    if (newAccess == null || newAccess.isEmpty) {
       throw StateError('Refresh response missing accessToken');
     }
 
     await _store.write(.access, newAccess);
     _accessToken = newAccess;
 
-    final newRefresh = data['refreshToken'];
-    if (newRefresh is String && newRefresh.isNotEmpty) {
+    final newRefresh =
+        (data['refresh_token'] ?? data['refreshToken']) as String?;
+    if (newRefresh != null && newRefresh.isNotEmpty) {
       await _store.write(.refresh, newRefresh);
       _refreshToken = newRefresh;
     }

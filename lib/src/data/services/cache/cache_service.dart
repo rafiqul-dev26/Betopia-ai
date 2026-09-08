@@ -10,6 +10,7 @@ enum CacheKey {
   /// The "Remember Me" checkbox preference, persisted for the UI.
   rememberMe,
   language,
+  biometricsEnabled,
 }
 
 /// Key-value persistence for small app state, keyed by [CacheKey] so

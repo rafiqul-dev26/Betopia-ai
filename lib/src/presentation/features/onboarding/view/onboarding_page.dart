@@ -8,8 +8,9 @@ import '../../../../domain/failures/business_failure.dart';
 import '../../../core/failure/business_failure_ui_mapper.dart';
 import '../../../core/router/routes.dart';
 import '../../../core/theme/theme.dart';
+import '../../authentication/biometrics/riverpod/biometrics_provider.dart';
 import '../../authentication/login/riverpod/login_provider.dart';
-import '../../authentication/login/widgets/language_switcher.dart';
+import '../../authentication/sso/widgets/sso_provider_dialog.dart';
 import '../widgets/betopia_auth_card.dart';
 import '../widgets/betopia_hero_view.dart';
 
@@ -27,10 +28,12 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   final _passwordController = TextEditingController();
   final _pageController = PageController();
   int _mobilePageIndex = 0;
+  bool _canCheckBiometrics = false;
 
   @override
   void initState() {
     super.initState();
+    _checkBiometrics();
 
     ref.listenManual(loginProvider, (previous, next) {
       switch (next) {
@@ -59,6 +62,26 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         default:
       }
     });
+  }
+
+  Future<void> _checkBiometrics() async {
+    final available =
+        await ref.read(biometricsProvider.notifier).checkAvailability();
+    if (mounted) {
+      setState(() => _canCheckBiometrics = available);
+    }
+  }
+
+  Future<void> _onBiometricSignIn() async {
+    final success = await ref
+        .read(biometricsProvider.notifier)
+        .authenticateAndLogin(
+          localizedReason: context.locale.biometricPromptReason,
+        );
+
+    if (success && mounted) {
+      _completeOnboarding();
+    }
   }
 
   void _completeOnboarding() {
@@ -97,6 +120,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
 
   void _onForgotPassword() {
     context.pushNamed(Routes.resetPassword.name);
+  }
+
+  void _onSsoSignIn() {
+    SsoProviderDialog.show(context);
   }
 
   @override
@@ -142,6 +169,9 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                     onSignIn: _onSignIn,
                     onSignUp: _onSignUp,
                     onForgotPassword: _onForgotPassword,
+                    onSsoSignIn: _onSsoSignIn,
+                    onBiometricSignIn:
+                        _canCheckBiometrics ? _onBiometricSignIn : null,
                   ),
                 ),
               ],
@@ -178,6 +208,9 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                             onSignIn: _onSignIn,
                             onSignUp: _onSignUp,
                             onForgotPassword: _onForgotPassword,
+                            onSsoSignIn: _onSsoSignIn,
+                            onBiometricSignIn:
+                                _canCheckBiometrics ? _onBiometricSignIn : null,
                           ),
                           Positioned(
                             top: 12,

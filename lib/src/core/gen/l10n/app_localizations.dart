@@ -921,6 +921,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sign Out'**
   String get signOut;
+
+  /// No description provided for @selectSsoProvider.
+  ///
+  /// In en, this message translates to:
+  /// **'Select SSO Provider'**
+  String get selectSsoProvider;
+
+  /// No description provided for @ssoLoginTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enterprise Single Sign-On'**
+  String get ssoLoginTitle;
+
+  /// No description provided for @ssoLoginSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select your organization identity provider to continue'**
+  String get ssoLoginSubtitle;
+
+  /// No description provided for @noSsoProvidersFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No SSO providers are currently configured.'**
+  String get noSsoProvidersFound;
+
+  /// No description provided for @authenticatingWithSso.
+  ///
+  /// In en, this message translates to:
+  /// **'Authenticating with SSO...'**
+  String get authenticatingWithSso;
+
+  /// No description provided for @enterAuthTicket.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Authentication Ticket'**
+  String get enterAuthTicket;
+
+  /// No description provided for @enterAuthTicketHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Paste auth ticket from callback'**
+  String get enterAuthTicketHint;
+
+  /// No description provided for @exchangeTicket.
+  ///
+  /// In en, this message translates to:
+  /// **'Exchange & Sign In'**
+  String get exchangeTicket;
+
+  /// No description provided for @ssoFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'SSO Authentication failed'**
+  String get ssoFailed;
+
+  /// No description provided for @signInWithFingerprint.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in with Biometrics'**
+  String get signInWithFingerprint;
+
+  /// No description provided for @biometricPromptReason.
+  ///
+  /// In en, this message translates to:
+  /// **'Authenticate with fingerprint or face to access Betopia AI'**
+  String get biometricPromptReason;
+
+  /// No description provided for @biometricsNotAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric authentication is not available or not enrolled on this device.'**
+  String get biometricsNotAvailable;
+
+  /// No description provided for @fingerprintAuthFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric authentication failed.'**
+  String get fingerprintAuthFailed;
+
+  /// No description provided for @biometricsEnabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometrics Enabled'**
+  String get biometricsEnabled;
+
+  /// No description provided for @authenticatingBiometrics.
+  ///
+  /// In en, this message translates to:
+  /// **'Authenticating with biometrics...'**
+  String get authenticatingBiometrics;
+
+  /// No description provided for @ssoBrowserTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'SSO Sign-In'**
+  String get ssoBrowserTitle;
+
+  /// No description provided for @authenticatingSso.
+  ///
+  /// In en, this message translates to:
+  /// **'Completing SSO authentication...'**
+  String get authenticatingSso;
 }
 
 class _AppLocalizationsDelegate

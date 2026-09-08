@@ -196,7 +196,24 @@
     "auto": "AUTO",
     "agent": "AGENT",
     "commands": "commands",
-    "signOut": "Sign Out"
+    "signOut": "Sign Out",
+    "selectSsoProvider": "Select SSO Provider",
+    "ssoLoginTitle": "Enterprise Single Sign-On",
+    "ssoLoginSubtitle": "Select your organization identity provider to continue",
+    "noSsoProvidersFound": "No SSO providers are currently configured.",
+    "authenticatingWithSso": "Authenticating with SSO...",
+    "enterAuthTicket": "Enter Authentication Ticket",
+    "enterAuthTicketHint": "Paste auth ticket from callback",
+    "exchangeTicket": "Exchange & Sign In",
+    "ssoFailed": "SSO Authentication failed",
+    "signInWithFingerprint": "Sign in with Biometrics",
+    "biometricPromptReason": "Authenticate with fingerprint or face to access Betopia AI",
+    "biometricsNotAvailable": "Biometric authentication is not available or not enrolled on this device.",
+    "fingerprintAuthFailed": "Biometric authentication failed.",
+    "biometricsEnabled": "Biometrics Enabled",
+    "authenticatingBiometrics": "Authenticating with biometrics...",
+    "ssoBrowserTitle": "SSO Sign-In",
+    "authenticatingSso": "Completing SSO authentication..."
 }
 
 

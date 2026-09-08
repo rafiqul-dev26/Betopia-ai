@@ -401,6 +401,95 @@ final class LocaleRepositoryProvider
 
 String _$localeRepositoryHash() => r'0a0a73c4a065d0204a4c4f3e0f3a3bfc7d9f56a1';
 
+@ProviderFor(oidcRepository)
+final oidcRepositoryProvider = OidcRepositoryProvider._();
+
+final class OidcRepositoryProvider
+    extends $FunctionalProvider<OidcRepository, OidcRepository, OidcRepository>
+    with $Provider<OidcRepository> {
+  OidcRepositoryProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'oidcRepositoryProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$oidcRepositoryHash();
+
+  @$internal
+  @override
+  $ProviderElement<OidcRepository> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  OidcRepository create(Ref ref) {
+    return oidcRepository(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(OidcRepository value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<OidcRepository>(value),
+    );
+  }
+}
+
+String _$oidcRepositoryHash() => r'409a4d49345629c7cb394df052cf626cf705ba94';
+
+@ProviderFor(biometricsRepository)
+final biometricsRepositoryProvider = BiometricsRepositoryProvider._();
+
+final class BiometricsRepositoryProvider
+    extends
+        $FunctionalProvider<
+          BiometricsRepository,
+          BiometricsRepository,
+          BiometricsRepository
+        >
+    with $Provider<BiometricsRepository> {
+  BiometricsRepositoryProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'biometricsRepositoryProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$biometricsRepositoryHash();
+
+  @$internal
+  @override
+  $ProviderElement<BiometricsRepository> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  BiometricsRepository create(Ref ref) {
+    return biometricsRepository(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(BiometricsRepository value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<BiometricsRepository>(value),
+    );
+  }
+}
+
+String _$biometricsRepositoryHash() =>
+    r'385341d11b426cd9f745699705a9f3e080974602';
+
 @ProviderFor(cacheService)
 final cacheServiceProvider = CacheServiceProvider._();
 
@@ -482,6 +571,53 @@ final class RestClientServiceProvider
 }
 
 String _$restClientServiceHash() => r'2d8797d82ab4d8b5269361b5a460b8373d827cd0';
+
+@ProviderFor(biometricsService)
+final biometricsServiceProvider = BiometricsServiceProvider._();
+
+final class BiometricsServiceProvider
+    extends
+        $FunctionalProvider<
+          BiometricsService,
+          BiometricsService,
+          BiometricsService
+        >
+    with $Provider<BiometricsService> {
+  BiometricsServiceProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'biometricsServiceProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$biometricsServiceHash();
+
+  @$internal
+  @override
+  $ProviderElement<BiometricsService> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  BiometricsService create(Ref ref) {
+    return biometricsService(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(BiometricsService value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<BiometricsService>(value),
+    );
+  }
+}
+
+String _$biometricsServiceHash() => r'a5b254fcec15146b7fbafb4d23002b42fa95b908';
 
 @ProviderFor(loginUseCase)
 final loginUseCaseProvider = LoginUseCaseProvider._();
@@ -904,3 +1040,348 @@ final class MarkOnboardingCompletedUseCaseProvider
 
 String _$markOnboardingCompletedUseCaseHash() =>
     r'a95c47e9b5ab746035908ddd70904a7775f1f73e';
+
+@ProviderFor(getOidcProvidersUseCase)
+final getOidcProvidersUseCaseProvider = GetOidcProvidersUseCaseProvider._();
+
+final class GetOidcProvidersUseCaseProvider
+    extends
+        $FunctionalProvider<
+          GetOidcProvidersUseCase,
+          GetOidcProvidersUseCase,
+          GetOidcProvidersUseCase
+        >
+    with $Provider<GetOidcProvidersUseCase> {
+  GetOidcProvidersUseCaseProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'getOidcProvidersUseCaseProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$getOidcProvidersUseCaseHash();
+
+  @$internal
+  @override
+  $ProviderElement<GetOidcProvidersUseCase> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  GetOidcProvidersUseCase create(Ref ref) {
+    return getOidcProvidersUseCase(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(GetOidcProvidersUseCase value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<GetOidcProvidersUseCase>(value),
+    );
+  }
+}
+
+String _$getOidcProvidersUseCaseHash() =>
+    r'8e69d77ae893824ba89b2ae2cf89b8329b58900b';
+
+@ProviderFor(getOidcAuthUrlUseCase)
+final getOidcAuthUrlUseCaseProvider = GetOidcAuthUrlUseCaseProvider._();
+
+final class GetOidcAuthUrlUseCaseProvider
+    extends
+        $FunctionalProvider<
+          GetOidcAuthUrlUseCase,
+          GetOidcAuthUrlUseCase,
+          GetOidcAuthUrlUseCase
+        >
+    with $Provider<GetOidcAuthUrlUseCase> {
+  GetOidcAuthUrlUseCaseProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'getOidcAuthUrlUseCaseProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$getOidcAuthUrlUseCaseHash();
+
+  @$internal
+  @override
+  $ProviderElement<GetOidcAuthUrlUseCase> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  GetOidcAuthUrlUseCase create(Ref ref) {
+    return getOidcAuthUrlUseCase(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(GetOidcAuthUrlUseCase value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<GetOidcAuthUrlUseCase>(value),
+    );
+  }
+}
+
+String _$getOidcAuthUrlUseCaseHash() =>
+    r'bbc79d15386779d57a1af41559161328480c39f2';
+
+@ProviderFor(exchangeAuthTicketUseCase)
+final exchangeAuthTicketUseCaseProvider = ExchangeAuthTicketUseCaseProvider._();
+
+final class ExchangeAuthTicketUseCaseProvider
+    extends
+        $FunctionalProvider<
+          ExchangeAuthTicketUseCase,
+          ExchangeAuthTicketUseCase,
+          ExchangeAuthTicketUseCase
+        >
+    with $Provider<ExchangeAuthTicketUseCase> {
+  ExchangeAuthTicketUseCaseProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'exchangeAuthTicketUseCaseProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$exchangeAuthTicketUseCaseHash();
+
+  @$internal
+  @override
+  $ProviderElement<ExchangeAuthTicketUseCase> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  ExchangeAuthTicketUseCase create(Ref ref) {
+    return exchangeAuthTicketUseCase(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(ExchangeAuthTicketUseCase value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<ExchangeAuthTicketUseCase>(value),
+    );
+  }
+}
+
+String _$exchangeAuthTicketUseCaseHash() =>
+    r'a1670c6fd23487d5375db1244ab367d842452eae';
+
+@ProviderFor(checkBiometricsAvailableUseCase)
+final checkBiometricsAvailableUseCaseProvider =
+    CheckBiometricsAvailableUseCaseProvider._();
+
+final class CheckBiometricsAvailableUseCaseProvider
+    extends
+        $FunctionalProvider<
+          CheckBiometricsAvailableUseCase,
+          CheckBiometricsAvailableUseCase,
+          CheckBiometricsAvailableUseCase
+        >
+    with $Provider<CheckBiometricsAvailableUseCase> {
+  CheckBiometricsAvailableUseCaseProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'checkBiometricsAvailableUseCaseProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$checkBiometricsAvailableUseCaseHash();
+
+  @$internal
+  @override
+  $ProviderElement<CheckBiometricsAvailableUseCase> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  CheckBiometricsAvailableUseCase create(Ref ref) {
+    return checkBiometricsAvailableUseCase(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(CheckBiometricsAvailableUseCase value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<CheckBiometricsAvailableUseCase>(
+        value,
+      ),
+    );
+  }
+}
+
+String _$checkBiometricsAvailableUseCaseHash() =>
+    r'1b1feaa7d21a1640440a2a52c87bca91d54c029f';
+
+@ProviderFor(authenticateWithBiometricsUseCase)
+final authenticateWithBiometricsUseCaseProvider =
+    AuthenticateWithBiometricsUseCaseProvider._();
+
+final class AuthenticateWithBiometricsUseCaseProvider
+    extends
+        $FunctionalProvider<
+          AuthenticateWithBiometricsUseCase,
+          AuthenticateWithBiometricsUseCase,
+          AuthenticateWithBiometricsUseCase
+        >
+    with $Provider<AuthenticateWithBiometricsUseCase> {
+  AuthenticateWithBiometricsUseCaseProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'authenticateWithBiometricsUseCaseProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() =>
+      _$authenticateWithBiometricsUseCaseHash();
+
+  @$internal
+  @override
+  $ProviderElement<AuthenticateWithBiometricsUseCase> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  AuthenticateWithBiometricsUseCase create(Ref ref) {
+    return authenticateWithBiometricsUseCase(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(AuthenticateWithBiometricsUseCase value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<AuthenticateWithBiometricsUseCase>(
+        value,
+      ),
+    );
+  }
+}
+
+String _$authenticateWithBiometricsUseCaseHash() =>
+    r'89b6d1bf32011fb5bbda82e75d19430eb4b9d873';
+
+@ProviderFor(getBiometricsEnabledUseCase)
+final getBiometricsEnabledUseCaseProvider =
+    GetBiometricsEnabledUseCaseProvider._();
+
+final class GetBiometricsEnabledUseCaseProvider
+    extends
+        $FunctionalProvider<
+          GetBiometricsEnabledUseCase,
+          GetBiometricsEnabledUseCase,
+          GetBiometricsEnabledUseCase
+        >
+    with $Provider<GetBiometricsEnabledUseCase> {
+  GetBiometricsEnabledUseCaseProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'getBiometricsEnabledUseCaseProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$getBiometricsEnabledUseCaseHash();
+
+  @$internal
+  @override
+  $ProviderElement<GetBiometricsEnabledUseCase> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  GetBiometricsEnabledUseCase create(Ref ref) {
+    return getBiometricsEnabledUseCase(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(GetBiometricsEnabledUseCase value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<GetBiometricsEnabledUseCase>(value),
+    );
+  }
+}
+
+String _$getBiometricsEnabledUseCaseHash() =>
+    r'3822752b142ac4a9631e20c368edba1492d6bf03';
+
+@ProviderFor(setBiometricsEnabledUseCase)
+final setBiometricsEnabledUseCaseProvider =
+    SetBiometricsEnabledUseCaseProvider._();
+
+final class SetBiometricsEnabledUseCaseProvider
+    extends
+        $FunctionalProvider<
+          SetBiometricsEnabledUseCase,
+          SetBiometricsEnabledUseCase,
+          SetBiometricsEnabledUseCase
+        >
+    with $Provider<SetBiometricsEnabledUseCase> {
+  SetBiometricsEnabledUseCaseProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'setBiometricsEnabledUseCaseProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$setBiometricsEnabledUseCaseHash();
+
+  @$internal
+  @override
+  $ProviderElement<SetBiometricsEnabledUseCase> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  SetBiometricsEnabledUseCase create(Ref ref) {
+    return setBiometricsEnabledUseCase(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(SetBiometricsEnabledUseCase value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<SetBiometricsEnabledUseCase>(value),
+    );
+  }
+}
+
+String _$setBiometricsEnabledUseCaseHash() =>
+    r'0d091cbd4223a55b9bfaf920df1464048c6d57ce';

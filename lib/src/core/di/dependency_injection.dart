@@ -6,8 +6,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../core/base/crash_reporter.dart';
 import '../../data/repositories/authentication_repository_impl.dart';
+import '../../data/repositories/biometrics_repository_impl.dart';
 import '../../data/repositories/locale_repository_impl.dart';
+import '../../data/repositories/oidc_repository_impl.dart';
 import '../../data/repositories/router_repository_impl.dart';
+import '../../data/services/biometrics/biometrics_service.dart';
 import '../../data/services/cache/cache_service.dart';
 import '../../data/services/cache/shared_preferences_service.dart';
 import '../../data/services/network/auth/secure_token_store.dart';
@@ -20,10 +23,14 @@ import '../../data/services/network/rest_client.dart';
 import '../../data/services/network/transport/dio_builder.dart';
 import '../../data/services/network/transport/interceptors/debug_logger_interceptor.dart';
 import '../../domain/repositories/authentication_repository.dart';
+import '../../domain/repositories/biometrics_repository.dart';
 import '../../domain/repositories/locale_repository.dart';
+import '../../domain/repositories/oidc_repository.dart';
 import '../../domain/repositories/router_repository.dart';
 import '../../domain/use_cases/authentication_use_case.dart';
+import '../../domain/use_cases/biometrics_use_case.dart';
 import '../../domain/use_cases/locale_use_case.dart';
+import '../../domain/use_cases/oidc_use_case.dart';
 import '../../domain/use_cases/reset_repository_use_case.dart';
 import '../../domain/use_cases/router_use_case.dart';
 

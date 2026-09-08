@@ -59,4 +59,4 @@ final class SessionStatusProvider
   }
 }
 
-String _$sessionStatusHash() => r'd896295dd59fcf77bb1525ec96847a911783bb55';
+String _$sessionStatusHash() => r'932f191d1953fbdbe17c3089c811de9f46ba0b7f';

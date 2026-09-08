@@ -18,6 +18,15 @@ abstract class RestClient {
   @POST(Endpoints.login)
   Future<HttpResponse> login(@Body() Map<String, dynamic> request);
 
+  @GET(Endpoints.oidcProviders)
+  Future<HttpResponse> getOidcProviders();
+
+  @GET(Endpoints.oidcLogin)
+  Future<HttpResponse> getOidcAuthUrl(@Path('config_id') int configId);
+
+  @POST(Endpoints.exchangeTicket)
+  Future<HttpResponse> exchangeTicket(@Body() Map<String, dynamic> request);
+
   /// The canonical protected endpoint. The [RequestAuth.protected] marker
   /// is the entire integration an endpoint needs: `AuthHeaderInterceptor`
   /// attaches the bearer on the way out, and `RefreshRetryInterceptor`

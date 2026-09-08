@@ -457,4 +457,60 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get signOut => 'সাইন আউট';
+
+  @override
+  String get selectSsoProvider => 'এসএসও প্রোভাইডার নির্বাচন করুন';
+
+  @override
+  String get ssoLoginTitle => 'এন্টারপ্রাইজ সিঙ্গেল সাইন-অন';
+
+  @override
+  String get ssoLoginSubtitle =>
+      'চালিয়ে যেতে আপনার প্রতিষ্ঠানের আইডেন্টিটি প্রোভাইডার নির্বাচন করুন';
+
+  @override
+  String get noSsoProvidersFound =>
+      'বর্তমানে কোনো এসএসও প্রোভাইডার কনফিগার করা নেই।';
+
+  @override
+  String get authenticatingWithSso => 'এসএসও দিয়ে প্রমাণীকরণ হচ্ছে...';
+
+  @override
+  String get enterAuthTicket => 'প্রমাণীকরণ টিকিট দিন';
+
+  @override
+  String get enterAuthTicketHint => 'কলব্যাক থেকে অথ টিকিট পেস্ট করুন';
+
+  @override
+  String get exchangeTicket => 'বিনিময় এবং সাইন ইন করুন';
+
+  @override
+  String get ssoFailed => 'এসএসও প্রমাণীকরণ ব্যর্থ হয়েছে';
+
+  @override
+  String get signInWithFingerprint => 'বায়োমেট্রিক দিয়ে সাইন ইন করুন';
+
+  @override
+  String get biometricPromptReason =>
+      'Betopia AI অ্যাক্সেস করতে আঙুলের ছাপ বা মুখ দিয়ে প্রমাণীকরণ করুন';
+
+  @override
+  String get biometricsNotAvailable =>
+      'এই ডিভাইসে বায়োমেট্রিক প্রমাণীকরণ উপলব্ধ বা নিবন্ধিত নেই।';
+
+  @override
+  String get fingerprintAuthFailed => 'বায়োমেট্রিক প্রমাণীকরণ ব্যর্থ হয়েছে।';
+
+  @override
+  String get biometricsEnabled => 'বায়োমেট্রিক সক্রিয়';
+
+  @override
+  String get authenticatingBiometrics =>
+      'বায়োমেট্রিক দিয়ে প্রমাণীকরণ হচ্ছে...';
+
+  @override
+  String get ssoBrowserTitle => 'এসএসও সাইন-ইন';
+
+  @override
+  String get authenticatingSso => 'এসএসও প্রমাণীকরণ সম্পন্ন হচ্ছে...';
 }

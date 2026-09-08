@@ -458,4 +458,59 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get signOut => 'Sign Out';
+
+  @override
+  String get selectSsoProvider => 'Select SSO Provider';
+
+  @override
+  String get ssoLoginTitle => 'Enterprise Single Sign-On';
+
+  @override
+  String get ssoLoginSubtitle =>
+      'Select your organization identity provider to continue';
+
+  @override
+  String get noSsoProvidersFound =>
+      'No SSO providers are currently configured.';
+
+  @override
+  String get authenticatingWithSso => 'Authenticating with SSO...';
+
+  @override
+  String get enterAuthTicket => 'Enter Authentication Ticket';
+
+  @override
+  String get enterAuthTicketHint => 'Paste auth ticket from callback';
+
+  @override
+  String get exchangeTicket => 'Exchange & Sign In';
+
+  @override
+  String get ssoFailed => 'SSO Authentication failed';
+
+  @override
+  String get signInWithFingerprint => 'Sign in with Biometrics';
+
+  @override
+  String get biometricPromptReason =>
+      'Authenticate with fingerprint or face to access Betopia AI';
+
+  @override
+  String get biometricsNotAvailable =>
+      'Biometric authentication is not available or not enrolled on this device.';
+
+  @override
+  String get fingerprintAuthFailed => 'Biometric authentication failed.';
+
+  @override
+  String get biometricsEnabled => 'Biometrics Enabled';
+
+  @override
+  String get authenticatingBiometrics => 'Authenticating with biometrics...';
+
+  @override
+  String get ssoBrowserTitle => 'SSO Sign-In';
+
+  @override
+  String get authenticatingSso => 'Completing SSO authentication...';
 }

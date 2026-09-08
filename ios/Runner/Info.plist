@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Betopia AI uses biometric authentication for secure login.</string>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
@@ -20,6 +22,15 @@
 		<string>bn</string>
 		<string>ar</string>
 	</array>
+		<key>CFBundleURLTypes</key>
+    	<array>
+    		<dict>
+    			<key>CFBundleURLSchemes</key>
+    			<array>
+    				<string>msauth.$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    			</array>
+    		</dict>
+    	</array>
 	<key>CFBundleName</key>
 	<string>Betopia Ai</string>
 	<key>CFBundlePackageType</key>

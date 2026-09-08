@@ -196,7 +196,24 @@
     "auto": "অটো",
     "agent": "এজেন্ট",
     "commands": "কমান্ড",
-    "signOut": "সাইন আউট"
+    "signOut": "সাইন আউট",
+    "selectSsoProvider": "এসএসও প্রোভাইডার নির্বাচন করুন",
+    "ssoLoginTitle": "এন্টারপ্রাইজ সিঙ্গেল সাইন-অন",
+    "ssoLoginSubtitle": "চালিয়ে যেতে আপনার প্রতিষ্ঠানের আইডেন্টিটি প্রোভাইডার নির্বাচন করুন",
+    "noSsoProvidersFound": "বর্তমানে কোনো এসএসও প্রোভাইডার কনফিগার করা নেই।",
+    "authenticatingWithSso": "এসএসও দিয়ে প্রমাণীকরণ হচ্ছে...",
+    "enterAuthTicket": "প্রমাণীকরণ টিকিট দিন",
+    "enterAuthTicketHint": "কলব্যাক থেকে অথ টিকিট পেস্ট করুন",
+    "exchangeTicket": "বিনিময় এবং সাইন ইন করুন",
+    "ssoFailed": "এসএসও প্রমাণীকরণ ব্যর্থ হয়েছে",
+    "signInWithFingerprint": "বায়োমেট্রিক দিয়ে সাইন ইন করুন",
+    "biometricPromptReason": "Betopia AI অ্যাক্সেস করতে আঙুলের ছাপ বা মুখ দিয়ে প্রমাণীকরণ করুন",
+    "biometricsNotAvailable": "এই ডিভাইসে বায়োমেট্রিক প্রমাণীকরণ উপলব্ধ বা নিবন্ধিত নেই।",
+    "fingerprintAuthFailed": "বায়োমেট্রিক প্রমাণীকরণ ব্যর্থ হয়েছে।",
+    "biometricsEnabled": "বায়োমেট্রিক সক্রিয়",
+    "authenticatingBiometrics": "বায়োমেট্রিক দিয়ে প্রমাণীকরণ হচ্ছে...",
+    "ssoBrowserTitle": "এসএসও সাইন-ইন",
+    "authenticatingSso": "এসএসও প্রমাণীকরণ সম্পন্ন হচ্ছে..."
 }
 
 

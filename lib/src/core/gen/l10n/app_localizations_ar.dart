@@ -451,4 +451,57 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get signOut => 'تسجيل الخروج';
+
+  @override
+  String get selectSsoProvider => 'اختر مزود SSO';
+
+  @override
+  String get ssoLoginTitle => 'تسجيل الدخول الموحد للمؤسسات';
+
+  @override
+  String get ssoLoginSubtitle => 'حدد مزود الهوية الخاص بمؤسستك للمتابعة';
+
+  @override
+  String get noSsoProvidersFound => 'لا يوجد مزودو SSO مهيأون حالياً.';
+
+  @override
+  String get authenticatingWithSso => 'جارٍ المصادقة باستخدام SSO...';
+
+  @override
+  String get enterAuthTicket => 'أدخل تذكرة المصادقة';
+
+  @override
+  String get enterAuthTicketHint => 'الصق تذكرة المصادقة المستلمة';
+
+  @override
+  String get exchangeTicket => 'تبديل وتسجيل الدخول';
+
+  @override
+  String get ssoFailed => 'فشلت مصادقة SSO';
+
+  @override
+  String get signInWithFingerprint => 'تسجيل الدخول بالبصمة الحيوية';
+
+  @override
+  String get biometricPromptReason =>
+      'المصادقة باستخدام بصمة الإصبع أو الوجه للوصول إلى Betopia AI';
+
+  @override
+  String get biometricsNotAvailable =>
+      'المصادقة البيومترية غير متوفرة أو غير مسجلة على هذا الجهاز.';
+
+  @override
+  String get fingerprintAuthFailed => 'فشلت المصادقة البيومترية.';
+
+  @override
+  String get biometricsEnabled => 'تم تمكين البصمة الحيوية';
+
+  @override
+  String get authenticatingBiometrics => 'جارٍ المصادقة بالبصمة...';
+
+  @override
+  String get ssoBrowserTitle => 'تسجيل الدخول عبر SSO';
+
+  @override
+  String get authenticatingSso => 'جارٍ إكمال مصادقة SSO...';
 }

@@ -18,6 +18,7 @@ class BetopiaAuthCard extends StatefulWidget {
     this.onForgotPassword,
     this.onGoogleSignIn,
     this.onSsoSignIn,
+    this.onBiometricSignIn,
     this.isLoading = false,
     this.showLogo = false,
   });
@@ -29,6 +30,7 @@ class BetopiaAuthCard extends StatefulWidget {
   final VoidCallback? onForgotPassword;
   final VoidCallback? onGoogleSignIn;
   final VoidCallback? onSsoSignIn;
+  final VoidCallback? onBiometricSignIn;
   final bool isLoading;
   final bool showLogo;
 
@@ -101,6 +103,14 @@ class _BetopiaAuthCardState extends State<BetopiaAuthCard> {
                   label: locale.logInWithSso,
                   onTap: widget.onSsoSignIn ?? () {},
                 ),
+                if (widget.onBiometricSignIn != null) ...[
+                  const Gap(12),
+                  _SocialAuthButton(
+                    icon: const _FingerprintIcon(),
+                    label: locale.signInWithFingerprint,
+                    onTap: widget.onBiometricSignIn!,
+                  ),
+                ],
                 const Gap(24),
 
                 // Divider
@@ -452,6 +462,21 @@ class _SsoIcon extends StatelessWidget {
           height: 1.0,
         ),
       ),
+    );
+  }
+}
+
+class _FingerprintIcon extends StatelessWidget {
+  const _FingerprintIcon();
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.color;
+
+    return Icon(
+      Icons.fingerprint_rounded,
+      size: 20,
+      color: colors.primary.defaultValue,
     );
   }
 }
