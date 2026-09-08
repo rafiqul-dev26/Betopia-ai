@@ -2,6 +2,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../../../core/base/result.dart';
 import '../../../../../core/di/dependency_injection.dart';
+import '../../../../core/application_state/onboarding_status_provider/onboarding_status_provider.dart';
 import '../../../../core/application_state/session_status_provider/session_status_provider.dart';
 
 part 'login_provider.g.dart';
@@ -28,13 +29,14 @@ class Login extends _$Login {
 
     if (!ref.mounted) return;
 
-    state = switch (result) {
-      Success() => AsyncValue.data(result),
-      Error(:final error) => AsyncValue.error(error, StackTrace.current),
-    };
-
-    if (state.hasValue && state.value != null) {
-      ref.invalidate(sessionStatusProvider);
+    switch (result) {
+      case Success():
+        ref.read(markOnboardingCompletedUseCaseProvider).call();
+        ref.invalidate(onboardingStatusProvider);
+        await ref.refresh(sessionStatusProvider.future);
+        state = AsyncValue.data(result);
+      case Error(:final error):
+        state = AsyncValue.error(error, StackTrace.current);
     }
   }
 }

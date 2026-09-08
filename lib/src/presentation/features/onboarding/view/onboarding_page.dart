@@ -63,9 +63,6 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   }
 
   void _completeOnboarding() {
-    ref.read(markOnboardingCompletedUseCaseProvider).call();
-    ref.invalidate(onboardingStatusProvider);
-    ref.invalidate(sessionStatusProvider);
     if (context.mounted) {
       context.go(Routes.home.path);
     }

@@ -32,11 +32,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     ref.listenManual(loginProvider, (previous, next) {
       switch (next) {
         case AsyncData(value: Success()):
-          // Mark onboarding completed & update session state
-          ref.read(markOnboardingCompletedUseCaseProvider).call();
-          ref.invalidate(onboardingStatusProvider);
-          ref.invalidate(sessionStatusProvider);
-
           // Proactively navigate to the dashboard
           if (context.mounted) {
             context.go(Routes.home.path);
