@@ -338,7 +338,7 @@ class _ProviderTile extends StatelessWidget {
                         provider.allowedDomains!.isNotEmpty) ...[
                       const Gap(2),
                       Text(
-                        provider.allowedDomains!,
+                        provider.oidcName??"",
                         style: TextStyle(
                           fontSize: 11,
                           color: colors.text.muted,

@@ -99,6 +99,7 @@ class _SsoWebViewPageState extends ConsumerState<SsoWebViewPage> {
           },
           onUrlChange: (change) {
             final url = change.url;
+            print('WebView URL changed: $url');
             if (url != null) _handleInterceptUrl(url);
           },
           onWebResourceError: (error) {

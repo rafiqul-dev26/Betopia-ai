@@ -24,13 +24,6 @@ extension RefAsListenable on Ref {
       }
     });
 
-    onResume(() {
-      final latestValue = read(provider);
-      if (valueNotifier.value != latestValue) {
-        valueNotifier.value = latestValue;
-      }
-    });
-
     onDispose(() {
       providerSubscription.close();
       valueNotifier.dispose();
