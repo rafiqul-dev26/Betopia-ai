@@ -5,6 +5,7 @@ import '../../../../core/extensions/localization.dart';
 import '../../../core/theme/theme.dart';
 import '../../../core/widgets/betopia_logo.dart';
 import '../../../core/widgets/google_icon.dart';
+import '../../authentication/login/widgets/language_switcher.dart';
 
 /// Right-side authentication / Welcome Back card for Betopia AI.
 class BetopiaAuthCard extends StatefulWidget {
@@ -55,6 +56,12 @@ class _BetopiaAuthCardState extends State<BetopiaAuthCard> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 if (widget.showLogo) ...[
+                 const Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      LanguageSwitcherWidget(),
+                    ],
+                  ),
                   const Center(
                     child: BetopiaLogo(fontSize: 24, iconSize: 30),
                   ),

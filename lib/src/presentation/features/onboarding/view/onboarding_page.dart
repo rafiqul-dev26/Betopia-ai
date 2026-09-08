@@ -9,6 +9,7 @@ import '../../../core/failure/business_failure_ui_mapper.dart';
 import '../../../core/router/routes.dart';
 import '../../../core/theme/theme.dart';
 import '../../authentication/login/riverpod/login_provider.dart';
+import '../../authentication/login/widgets/language_switcher.dart';
 import '../widgets/betopia_auth_card.dart';
 import '../widgets/betopia_hero_view.dart';
 

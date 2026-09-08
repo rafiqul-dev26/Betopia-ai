@@ -110,7 +110,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
           ? Row(
               children: [
                 const Expanded(
-                  flex: 5,
+                  flex: 2,
                   child: BetopiaHeroView(),
                 ),
                 Container(
