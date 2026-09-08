@@ -35,7 +35,7 @@ class _HomePageState extends ConsumerState<HomePage> {
     super.initState();
     ref.listenManual(logoutProvider, (previous, next) {
       switch (next) {
-        case AsyncData():
+        case AsyncData(value: true):
           if (context.mounted) {
             context.go(Routes.login.path);
           }
@@ -220,15 +220,13 @@ class _HomePageState extends ConsumerState<HomePage> {
                           child: ElevatedButton(
                             onPressed: () async {
                               setDialogState(() => isSubmitting = true);
-                              await Future.delayed(
-                                const Duration(milliseconds: 600),
-                              );
-                              if (mounted) {
-                                await ref.read(logoutProvider.notifier).call();
-                              }
                               if (dialogContext.mounted) {
-                                Navigator.of(dialogContext).pop();
+                                Future.delayed(const Duration(milliseconds: 1000), () async {
+                                  await ref.read(logoutProvider.notifier).call();
+                                  Navigator.of(dialogContext).pop();
+                                });
                               }
+
                             },
                             style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(vertical: 12),
