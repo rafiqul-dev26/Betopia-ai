@@ -770,14 +770,14 @@ class _PromptCapsule extends StatelessWidget {
                     enabledBorder: InputBorder.none,
                     focusedBorder: InputBorder.none,
                     isDense: true,
-                    contentPadding: EdgeInsets.fromLTRB(44, 8, 110, 8),
+                    contentPadding: EdgeInsets.fromLTRB(0, 8, 0, 8),
                   ),
                 ),
 
                 // Left Attach Toggle Button (on top of text box)
                 Positioned(
                   left: 0,
-                  top: 0,
+                  bottom: 0,
                   child: GestureDetector(
                     onTap: onToggleMenu,
                     child: Container(
@@ -801,7 +801,7 @@ class _PromptCapsule extends StatelessWidget {
                 // Right Action Icons + Send Button (on top of text box)
                 Positioned(
                   right: 0,
-                  top: 0,
+                  bottom: 0,
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -840,13 +840,13 @@ class _PromptCapsule extends StatelessWidget {
                           width: 34,
                           height: 34,
                           decoration: BoxDecoration(
-                            color: const Color(0xFF222530),
+                            color:  Theme.of(context).buttonTheme.colorScheme?.primary,
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          child: const Icon(
+                          child:  Icon(
                             Icons.arrow_upward_rounded,
                             size: 18,
-                            color: Color(0xFF9CA3AF),
+                            color: Theme.of(context).buttonTheme.colorScheme?.inversePrimary,
                           ),
                         ),
                       ),
