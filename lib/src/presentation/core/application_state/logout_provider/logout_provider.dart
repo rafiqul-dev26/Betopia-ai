@@ -24,7 +24,7 @@ class Logout extends _$Logout {
 
     switch (result) {
       case Success():
-        await ref.refresh(sessionStatusProvider.future);
+        final _ = await ref.refresh(sessionStatusProvider.future);
         state = const AsyncValue.data(true);
       case Error(:final error):
         state = AsyncValue.error(error, StackTrace.current);

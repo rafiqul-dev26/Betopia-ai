@@ -3,13 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/base/result.dart';
-import '../../../../core/di/dependency_injection.dart';
 import '../../../../core/extensions/localization.dart';
 import '../../../../domain/failures/business_failure.dart';
-import '../../../core/application_state/onboarding_status_provider/onboarding_status_provider.dart';
-import '../../../core/application_state/session_status_provider/session_status_provider.dart';
 import '../../../core/failure/business_failure_ui_mapper.dart';
 import '../../../core/router/routes.dart';
+import '../../../core/theme/theme.dart';
 import '../../authentication/login/riverpod/login_provider.dart';
 import '../widgets/betopia_auth_card.dart';
 import '../widgets/betopia_hero_view.dart';
@@ -40,20 +38,20 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         case AsyncError(error: final BusinessFailure failure):
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              backgroundColor: const Color(0xFFE03131),
+              backgroundColor: context.color.status.danger,
               content: Text(
                 BusinessFailureUIMapper.map(failure, context.locale).message,
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(color: context.color.text.defaultValue),
               ),
             ),
           );
         case AsyncError():
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              backgroundColor: const Color(0xFFE03131),
+              backgroundColor: context.color.status.danger,
               content: Text(
                 BusinessFailureUIMapper.unexpected(context.locale).message,
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(color: context.color.text.defaultValue),
               ),
             ),
           );
@@ -74,11 +72,11 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
 
     if (email.isEmpty || password.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          backgroundColor: Color(0xFF262833),
+        SnackBar(
+          backgroundColor: context.color.background.surface,
           content: Text(
-            'Please enter both work email and password',
-            style: TextStyle(color: Colors.white),
+            context.locale.enterWorkEmailAndPassword,
+            style: TextStyle(color: context.color.text.defaultValue),
           ),
         ),
       );
@@ -112,9 +110,11 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   Widget build(BuildContext context) {
     final loginState = ref.watch(loginProvider);
     final isWideScreen = MediaQuery.of(context).size.width >= 850;
+    final colors = context.color;
+    final locale = context.locale;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF0C0D11),
+      backgroundColor: colors.background.canvas,
       body: isWideScreen
           // Desktop / Tablet Side-by-Side Dual Column Layout
           ? Row(
@@ -129,7 +129,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                 // Subtle vertical divider line
                 Container(
                   width: 1,
-                  color: const Color(0xFF1F212B),
+                  color: colors.border.subtle,
                 ),
                 // Right Welcome Back Card
                 Expanded(
@@ -182,9 +182,9 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                             top: 12,
                             left: 16,
                             child: IconButton(
-                              icon: const Icon(
+                              icon: Icon(
                                 Icons.arrow_back_ios_new_rounded,
-                                color: Color(0xFF9CA3AF),
+                                color: colors.text.muted,
                                 size: 20,
                               ),
                               onPressed: () {
@@ -214,10 +214,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                           curve: Curves.easeInOut,
                         );
                       },
-                      child: const Text(
-                        'Sign In',
+                      child: Text(
+                        locale.signIn,
                         style: TextStyle(
-                          color: Color(0xFFFF640A),
+                          color: colors.primary.defaultValue,
                           fontWeight: FontWeight.w600,
                           fontSize: 14,
                         ),
@@ -229,3 +229,4 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     );
   }
 }
+

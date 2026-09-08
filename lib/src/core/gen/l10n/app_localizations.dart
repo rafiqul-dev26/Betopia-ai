@@ -241,7 +241,7 @@ abstract class AppLocalizations {
   /// No description provided for @forgotPassword.
   ///
   /// In en, this message translates to:
-  /// **'Forgot password'**
+  /// **'Forgot password?'**
   String get forgotPassword;
 
   /// No description provided for @backToLogin.
@@ -265,7 +265,7 @@ abstract class AppLocalizations {
   /// No description provided for @signIn.
   ///
   /// In en, this message translates to:
-  /// **'Sign in'**
+  /// **'Sign In'**
   String get signIn;
 
   /// No description provided for @email.
@@ -508,17 +508,419 @@ abstract class AppLocalizations {
   /// **'Sign in again'**
   String get signInAgain;
 
-  /// No description provided for @appTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Flutter Template'**
-  String get appTitle;
-
   /// No description provided for @somethingWentWrong.
   ///
   /// In en, this message translates to:
   /// **'Something went wrong.'**
   String get somethingWentWrong;
+
+  /// No description provided for @beta.
+  ///
+  /// In en, this message translates to:
+  /// **'BETA'**
+  String get beta;
+
+  /// No description provided for @heroHeadlinePrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'Intelligence at the '**
+  String get heroHeadlinePrefix;
+
+  /// No description provided for @heroHeadlineGradient.
+  ///
+  /// In en, this message translates to:
+  /// **'speed of thought.'**
+  String get heroHeadlineGradient;
+
+  /// No description provided for @heroSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reasoning, code, documents, images, and voice — routed to the right engine, automatically.'**
+  String get heroSubtitle;
+
+  /// No description provided for @intelligenceLayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Intelligence Layer'**
+  String get intelligenceLayer;
+
+  /// No description provided for @intelligenceLayerDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Adaptive routing across frontier models in real time'**
+  String get intelligenceLayerDesc;
+
+  /// No description provided for @zeroDataRetention.
+  ///
+  /// In en, this message translates to:
+  /// **'Zero Data Retention'**
+  String get zeroDataRetention;
+
+  /// No description provided for @zeroDataRetentionDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Enterprise-grade privacy with ephemeral memory isolation'**
+  String get zeroDataRetentionDesc;
+
+  /// No description provided for @activeEnterpriseEngines.
+  ///
+  /// In en, this message translates to:
+  /// **'Active Enterprise Engines'**
+  String get activeEnterpriseEngines;
+
+  /// No description provided for @welcomeBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome back'**
+  String get welcomeBack;
+
+  /// No description provided for @welcomeBackSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to pick up your conversations, right where you left off.'**
+  String get welcomeBackSubtitle;
+
+  /// No description provided for @signInWithGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in with Google'**
+  String get signInWithGoogle;
+
+  /// No description provided for @logInWithSso.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in with Betopia SSO'**
+  String get logInWithSso;
+
+  /// No description provided for @orSignInWithEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'OR SIGN IN WITH EMAIL'**
+  String get orSignInWithEmail;
+
+  /// No description provided for @workEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Work Email'**
+  String get workEmail;
+
+  /// No description provided for @workEmailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'name@company.com'**
+  String get workEmailHint;
+
+  /// No description provided for @enterWorkEmailAndPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter both work email and password'**
+  String get enterWorkEmailAndPassword;
+
+  /// No description provided for @signUpFree.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign up free'**
+  String get signUpFree;
+
+  /// No description provided for @helloGreeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello, {name}'**
+  String helloGreeting(String name);
+
+  /// No description provided for @homeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Intelligent conversation, crafted for those who build what others only imagine.'**
+  String get homeSubtitle;
+
+  /// No description provided for @whatWillYouCreateToday.
+  ///
+  /// In en, this message translates to:
+  /// **'What will you create today?'**
+  String get whatWillYouCreateToday;
+
+  /// No description provided for @addFilesAndPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Files & Photos'**
+  String get addFilesAndPhotos;
+
+  /// No description provided for @knowledgeBase.
+  ///
+  /// In en, this message translates to:
+  /// **'Knowledge Base'**
+  String get knowledgeBase;
+
+  /// No description provided for @toolsAndSkills.
+  ///
+  /// In en, this message translates to:
+  /// **'Tools & Skills'**
+  String get toolsAndSkills;
+
+  /// No description provided for @comingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming Soon'**
+  String get comingSoon;
+
+  /// No description provided for @deepResearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Deep Research'**
+  String get deepResearch;
+
+  /// No description provided for @fastCreative.
+  ///
+  /// In en, this message translates to:
+  /// **'Fast Creative'**
+  String get fastCreative;
+
+  /// No description provided for @codeReasoning.
+  ///
+  /// In en, this message translates to:
+  /// **'Code & Reasoning'**
+  String get codeReasoning;
+
+  /// No description provided for @visionMultimodal.
+  ///
+  /// In en, this message translates to:
+  /// **'Vision & Multimodal'**
+  String get visionMultimodal;
+
+  /// No description provided for @disclaimerBetopiaAi.
+  ///
+  /// In en, this message translates to:
+  /// **'Betopia AI can make mistakes. Betopia doesn\'t use your workspace data to train its models.'**
+  String get disclaimerBetopiaAi;
+
+  /// No description provided for @signOutConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Out'**
+  String get signOutConfirmTitle;
+
+  /// No description provided for @signOutConfirmDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to sign out of Betopia AI?'**
+  String get signOutConfirmDescription;
+
+  /// No description provided for @signingOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Signing out...'**
+  String get signingOut;
+
+  /// No description provided for @yesSignOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes, Sign Out'**
+  String get yesSignOut;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @accountSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Settings'**
+  String get accountSettings;
+
+  /// No description provided for @newChat.
+  ///
+  /// In en, this message translates to:
+  /// **'New Chat'**
+  String get newChat;
+
+  /// No description provided for @today.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get today;
+
+  /// No description provided for @yesterday.
+  ///
+  /// In en, this message translates to:
+  /// **'Yesterday'**
+  String get yesterday;
+
+  /// No description provided for @previous7Days.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous 7 Days'**
+  String get previous7Days;
+
+  /// No description provided for @openSidebar.
+  ///
+  /// In en, this message translates to:
+  /// **'Open sidebar'**
+  String get openSidebar;
+
+  /// No description provided for @collapseSidebar.
+  ///
+  /// In en, this message translates to:
+  /// **'Collapse sidebar'**
+  String get collapseSidebar;
+
+  /// No description provided for @processingQuery.
+  ///
+  /// In en, this message translates to:
+  /// **'Processing: \"{query}\" with Betopia AI ({mode})'**
+  String processingQuery(String query, String mode);
+
+  /// No description provided for @loadedConversation.
+  ///
+  /// In en, this message translates to:
+  /// **'Loaded chat conversation #{id}'**
+  String loadedConversation(String id);
+
+  /// No description provided for @chatHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'CHAT HISTORY'**
+  String get chatHistory;
+
+  /// No description provided for @workspace.
+  ///
+  /// In en, this message translates to:
+  /// **'WORKSPACE'**
+  String get workspace;
+
+  /// No description provided for @tools.
+  ///
+  /// In en, this message translates to:
+  /// **'Tools'**
+  String get tools;
+
+  /// No description provided for @connectors.
+  ///
+  /// In en, this message translates to:
+  /// **'Connectors'**
+  String get connectors;
+
+  /// No description provided for @library.
+  ///
+  /// In en, this message translates to:
+  /// **'LIBRARY'**
+  String get library;
+
+  /// No description provided for @assetLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'Asset Library'**
+  String get assetLibrary;
+
+  /// No description provided for @temporalArchive.
+  ///
+  /// In en, this message translates to:
+  /// **'Temporal Archive'**
+  String get temporalArchive;
+
+  /// No description provided for @standardRole.
+  ///
+  /// In en, this message translates to:
+  /// **'standard'**
+  String get standardRole;
+
+  /// No description provided for @heroHeadlineSuffix.
+  ///
+  /// In en, this message translates to:
+  /// **' faster.'**
+  String get heroHeadlineSuffix;
+
+  /// No description provided for @featureFrontierModels.
+  ///
+  /// In en, this message translates to:
+  /// **'10+ frontier AI models, one chat'**
+  String get featureFrontierModels;
+
+  /// No description provided for @featureStreaming.
+  ///
+  /// In en, this message translates to:
+  /// **'Real-time streaming responses'**
+  String get featureStreaming;
+
+  /// No description provided for @featureEnterpriseSecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'Enterprise-grade security'**
+  String get featureEnterpriseSecurity;
+
+  /// No description provided for @footerCopyright.
+  ///
+  /// In en, this message translates to:
+  /// **'© 2026 Betopia AI · Terms · Privacy'**
+  String get footerCopyright;
+
+  /// No description provided for @passwordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'PASSWORD'**
+  String get passwordLabel;
+
+  /// No description provided for @passwordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'••••••••'**
+  String get passwordHint;
+
+  /// No description provided for @slides.
+  ///
+  /// In en, this message translates to:
+  /// **'Slides'**
+  String get slides;
+
+  /// No description provided for @code.
+  ///
+  /// In en, this message translates to:
+  /// **'Code'**
+  String get code;
+
+  /// No description provided for @imageGen.
+  ///
+  /// In en, this message translates to:
+  /// **'Image Gen'**
+  String get imageGen;
+
+  /// No description provided for @more.
+  ///
+  /// In en, this message translates to:
+  /// **'More'**
+  String get more;
+
+  /// No description provided for @soon.
+  ///
+  /// In en, this message translates to:
+  /// **'SOON'**
+  String get soon;
+
+  /// No description provided for @auto.
+  ///
+  /// In en, this message translates to:
+  /// **'AUTO'**
+  String get auto;
+
+  /// No description provided for @agent.
+  ///
+  /// In en, this message translates to:
+  /// **'AGENT'**
+  String get agent;
+
+  /// No description provided for @commands.
+  ///
+  /// In en, this message translates to:
+  /// **'commands'**
+  String get commands;
+
+  /// No description provided for @signOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Out'**
+  String get signOut;
 }
 
 class _AppLocalizationsDelegate

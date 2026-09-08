@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../../../core/extensions/localization.dart';
+import '../../../core/theme/theme.dart';
 import '../../../core/widgets/betopia_logo.dart';
 import '../../../core/widgets/orbital_background.dart';
 
@@ -17,6 +19,9 @@ class BetopiaHeroView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+    final locale = context.locale;
+
     return OrbitalBackground(
       child: SafeArea(
         child: LayoutBuilder(
@@ -47,35 +52,34 @@ class BetopiaHeroView extends StatelessWidget {
                           const Gap(16),
 
                           // Subtitle
-                          const Text(
-                            'Reasoning, code, documents, images, and voice — '
-                            'routed to the right engine, automatically.',
+                          Text(
+                            locale.heroSubtitle,
                             style: TextStyle(
                               fontSize: 15,
                               height: 1.5,
-                              color: Color(0xFF9CA3AF),
+                              color: colors.text.muted,
                               letterSpacing: -0.1,
                             ),
                           ),
                           const Gap(24),
 
                           // 3 Feature Badges
-                          const _FeatureBadge(
+                          _FeatureBadge(
                             icon: Icons.auto_awesome_rounded,
-                            iconColor: Color(0xFFFFA048),
-                            text: '10+ frontier AI models, one chat',
+                            iconColor: colors.accent.gold,
+                            text: locale.featureFrontierModels,
                           ),
                           const Gap(10),
-                          const _FeatureBadge(
+                          _FeatureBadge(
                             icon: Icons.bolt_rounded,
-                            iconColor: Color(0xFFFF640A),
-                            text: 'Real-time streaming responses',
+                            iconColor: colors.primary.defaultValue,
+                            text: locale.featureStreaming,
                           ),
                           const Gap(10),
-                          const _FeatureBadge(
+                          _FeatureBadge(
                             icon: Icons.shield_outlined,
-                            iconColor: Color(0xFFF59E0B),
-                            text: 'Enterprise-grade security',
+                            iconColor: colors.accent.gold,
+                            text: locale.featureEnterpriseSecurity,
                           ),
 
                           if (showMobileActions) ...[
@@ -86,25 +90,25 @@ class BetopiaHeroView extends StatelessWidget {
                               child: ElevatedButton(
                                 onPressed: onGetStarted,
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFFFF640A),
-                                  foregroundColor: Colors.white,
+                                  backgroundColor: colors.primary.defaultValue,
+                                  foregroundColor: colors.text.defaultValue,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(12),
                                   ),
                                   elevation: 0,
                                 ),
-                                child: const Row(
+                                child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      'Get Started',
-                                      style: TextStyle(
+                                      locale.getStarted,
+                                      style: const TextStyle(
                                         fontSize: 15,
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
-                                    Gap(8),
-                                    Icon(
+                                    const Gap(8),
+                                    const Icon(
                                       Icons.arrow_forward_rounded,
                                       size: 18,
                                     ),
@@ -118,11 +122,11 @@ class BetopiaHeroView extends StatelessWidget {
                       const Gap(24),
 
                       // Footer copyright & links
-                      const Text(
-                        '© 2026 Betopia AI · Terms · Privacy',
+                      Text(
+                        locale.footerCopyright,
                         style: TextStyle(
                           fontSize: 12,
-                          color: Color(0xFF6B7280),
+                          color: colors.text.muted,
                           letterSpacing: 0.1,
                         ),
                       ),
@@ -143,15 +147,18 @@ class _HeroHeadline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+    final locale = context.locale;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'Ask anything,',
+        Text(
+          locale.heroHeadlinePrefix,
           style: TextStyle(
             fontSize: 36,
             fontWeight: FontWeight.w800,
-            color: Colors.white,
+            color: colors.text.defaultValue,
             height: 1.15,
             letterSpacing: -1.0,
           ),
@@ -162,32 +169,32 @@ class _HeroHeadline extends StatelessWidget {
             // Gradient "answered"
             ShaderMask(
               shaderCallback: (bounds) {
-                return const LinearGradient(
+                return LinearGradient(
                   colors: [
-                    Color(0xFFFF7A1A),
-                    Color(0xFFFF9548),
-                    Color(0xFFC084FC),
+                    colors.primary.defaultValue,
+                    colors.accent.gold,
+                    colors.accent.purple,
                   ],
-                  stops: [0.0, 0.45, 1.0],
+                  stops: const [0.0, 0.45, 1.0],
                 ).createShader(bounds);
               },
-              child: const Text(
-                'answered',
+              child: Text(
+                locale.heroHeadlineGradient,
                 style: TextStyle(
                   fontSize: 36,
                   fontWeight: FontWeight.w800,
-                  color: Colors.white,
+                  color: colors.text.defaultValue,
                   height: 1.15,
                   letterSpacing: -1.0,
                 ),
               ),
             ),
-            const Text(
-              ' faster.',
+            Text(
+              locale.heroHeadlineSuffix,
               style: TextStyle(
                 fontSize: 36,
                 fontWeight: FontWeight.w800,
-                color: Colors.white,
+                color: colors.text.defaultValue,
                 height: 1.15,
                 letterSpacing: -1.0,
               ),
@@ -212,13 +219,15 @@ class _FeatureBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
       decoration: BoxDecoration(
-        color: const Color(0xFF161820).withValues(alpha: 0.9),
+        color: colors.background.surface.withValues(alpha: 0.9),
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
-          color: const Color(0xFF262833),
+          color: colors.border.defaultValue,
           width: 0.9,
         ),
       ),
@@ -230,10 +239,10 @@ class _FeatureBadge extends StatelessWidget {
           Flexible(
             child: Text(
               text,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w500,
-                color: Color(0xFFE5E7EB),
+                color: colors.text.defaultValue,
                 letterSpacing: -0.1,
               ),
             ),
@@ -243,3 +252,4 @@ class _FeatureBadge extends StatelessWidget {
     );
   }
 }
+

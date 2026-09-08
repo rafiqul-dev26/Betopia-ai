@@ -100,6 +100,104 @@
     "failureUnexpected": "حدث خطأ ما.",
     "retry": "إعادة المحاولة",
     "signInAgain": "تسجيل الدخول مرة أخرى",
-    "appTitle": "قالب فلاتر",
-    "somethingWentWrong": "حدث خطأ ما."
+    "somethingWentWrong": "حدث خطأ ما.",
+    "beta": "BETA",
+    "heroHeadlinePrefix": "الذكاء في ",
+    "heroHeadlineGradient": "سرعة التفكير.",
+    "heroSubtitle": "الاستنتاج والبرمجة والمستندات والصور والصوت — موجهة إلى المحرك المناسب تلقائيًا.",
+    "intelligenceLayer": "طبقة الذكاء",
+    "intelligenceLayerDesc": "توجيه متكيف عبر النماذج الرائدة في الوقت الفعلي",
+    "zeroDataRetention": "عدم الاحتفاظ بالبيانات",
+    "zeroDataRetentionDesc": "خصوصية على مستوى المؤسسات مع عزل الذاكرة المؤقتة",
+    "activeEnterpriseEngines": "محركات المؤسسات النشطة",
+    "welcomeBack": "مرحبًا بعودتك",
+    "welcomeBackSubtitle": "سجل الدخول لمتابعة محادثاتك من حيث توقفت.",
+    "signInWithGoogle": "تسجيل الدخول باستخدام Google",
+    "logInWithSso": "تسجيل الدخول باستخدام Betopia SSO",
+    "orSignInWithEmail": "أو تسجيل الدخول بالبريد الإلكتروني",
+    "workEmail": "بريد العمل الإلكتروني",
+    "workEmailHint": "name@company.com",
+    "enterWorkEmailAndPassword": "يرجى إدخال كل من بريد العمل وكلمة المرور",
+    "signUpFree": "سجل مجانًا",
+    "helloGreeting": "مرحبًا، {name}",
+    "@helloGreeting": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "homeSubtitle": "محادثة ذكية، مصممة لأولئك الذين يبنون ما يتخيله الآخرون فقط.",
+    "whatWillYouCreateToday": "ماذا ستنشئ اليوم؟",
+    "addFilesAndPhotos": "إضافة ملفات وصور",
+    "knowledgeBase": "قاعدة المعرفة",
+    "toolsAndSkills": "الأدوات والمهارات",
+    "comingSoon": "قريبًا",
+    "deepResearch": "بحث متعمق",
+    "fastCreative": "إبداع سريع",
+    "codeReasoning": "برمجة واستنتاج",
+    "visionMultimodal": "الرؤية والوسائط المتعددة",
+    "disclaimerBetopiaAi": "قد يرتكب Betopia AI أخطاء. لا يستخدم Betopia بيانات مساحة العمل الخاصة بك لتدريب نماذجه.",
+    "signOutConfirmTitle": "تسجيل الخروج",
+    "signOutConfirmDescription": "هل أنت متأكد أنك تريد تسجيل الخروج من Betopia AI؟",
+    "signingOut": "جارٍ تسجيل الخروج...",
+    "yesSignOut": "نعم، تسجيل الخروج",
+    "cancel": "إلغاء",
+    "accountSettings": "إعدادات الحساب",
+    "newChat": "محادثة جديدة",
+    "today": "اليوم",
+    "yesterday": "أمس",
+    "previous7Days": "الأيام السبعة السابقة",
+    "openSidebar": "فتح الشريط الجانبي",
+    "collapseSidebar": "طي الشريط الجانبي",
+    "processingQuery": "جارٍ المعالجة: \"{query}\" باستخدام Betopia AI ({mode})",
+    "@processingQuery": {
+        "placeholders": {
+            "query": {
+                "type": "String"
+            },
+            "mode": {
+                "type": "String"
+            }
+        }
+    },
+    "loadedConversation": "تم تحميل المحادثة #{id}",
+    "@loadedConversation": {
+        "placeholders": {
+            "id": {
+                "type": "String"
+            }
+        }
+    },
+    "chatHistory": "سجل المحادثات",
+    "workspace": "مساحة العمل",
+    "tools": "الأدوات",
+    "connectors": "الموصلات",
+    "library": "المكتبة",
+    "assetLibrary": "مكتبة الأصول",
+    "temporalArchive": "الأرشيف الزمني",
+    "standardRole": "قياسي",
+    "heroHeadlineSuffix": " أسرع.",
+    "featureFrontierModels": "+10 نماذج ذكاء اصطناعي رائدة في محادثة واحدة",
+    "featureStreaming": "استجابات فورية ومتدفقة",
+    "featureEnterpriseSecurity": "أمان على مستوى المؤسسات",
+    "getStarted": "ابدأ الآن",
+    "footerCopyright": "© 2026 Betopia AI · الشروط · الخصوصية",
+    "passwordLabel": "كلمة المرور",
+    "passwordHint": "••••••••",
+    "forgotPassword": "هل نسيت كلمة المرور؟",
+    "signIn": "تسجيل الدخول",
+    "dontHaveAccount": "ليس لديك حساب؟ ",
+    "slides": "الشرائح",
+    "code": "البرمجة",
+    "imageGen": "توليد الصور",
+    "more": "المزيد",
+    "soon": "قريباً",
+    "auto": "تلقائي",
+    "agent": "الوكيل",
+    "commands": "الأوامر",
+    "signOut": "تسجيل الخروج"
 }
+
+
+

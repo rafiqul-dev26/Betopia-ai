@@ -10,6 +10,7 @@ import '../../../../domain/failures/business_failure.dart';
 import '../../../core/application_state/logout_provider/logout_provider.dart';
 import '../../../core/failure/business_failure_ui_mapper.dart';
 import '../../../core/router/routes.dart';
+import '../../../core/theme/theme.dart';
 import '../../../core/widgets/betopia_logo.dart';
 import '../widgets/chat_sidebar.dart';
 import '../widgets/dot_grid_background.dart';
@@ -42,10 +43,10 @@ class _HomePageState extends ConsumerState<HomePage> {
         case AsyncError(error: final BusinessFailure failure):
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              backgroundColor: const Color(0xFFE03131),
+              backgroundColor: context.color.status.danger,
               content: Text(
                 BusinessFailureUIMapper.map(failure, context.locale).message,
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(color: context.color.text.defaultValue),
               ),
             ),
           );
@@ -67,10 +68,10 @@ class _HomePageState extends ConsumerState<HomePage> {
     _promptController.clear();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        backgroundColor: const Color(0xFF161820),
+        backgroundColor: context.color.background.surface,
         content: Text(
-          'Processing: "$query" with Betopia AI ($_selectedMode)',
-          style: const TextStyle(color: Colors.white),
+          context.locale.processingQuery(query, _selectedMode),
+          style: TextStyle(color: context.color.text.defaultValue),
         ),
       ),
     );
@@ -80,10 +81,10 @@ class _HomePageState extends ConsumerState<HomePage> {
     setState(() => _selectedChatId = id);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        backgroundColor: const Color(0xFF161820),
+        backgroundColor: context.color.background.surface,
         content: Text(
-          'Loaded chat conversation #$id',
-          style: const TextStyle(color: Colors.white),
+          context.locale.loadedConversation(id),
+          style: TextStyle(color: context.color.text.defaultValue),
         ),
       ),
     );
@@ -97,6 +98,9 @@ class _HomePageState extends ConsumerState<HomePage> {
   }
 
   Future<void> _showLogoutConfirmationDialog() async {
+    final colors = context.color;
+    final locale = context.locale;
+
     await showDialog<void>(
       context: context,
       barrierDismissible: false,
@@ -106,10 +110,10 @@ class _HomePageState extends ConsumerState<HomePage> {
         return StatefulBuilder(
           builder: (context, setDialogState) {
             return AlertDialog(
-              backgroundColor: const Color(0xFF161822),
+              backgroundColor: colors.background.surface,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
-                side: const BorderSide(color: Color(0xFF242735), width: 1),
+                side: BorderSide(color: colors.border.defaultValue, width: 1),
               ),
               contentPadding: const EdgeInsets.fromLTRB(24, 24, 24, 20),
               content: Column(
@@ -121,37 +125,39 @@ class _HomePageState extends ConsumerState<HomePage> {
                     height: 52,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: const Color(0xFFFF640A).withValues(alpha: 0.12),
+                      color:
+                          colors.primary.defaultValue.withValues(alpha: 0.12),
                       border: Border.all(
-                        color: const Color(0xFFFF640A).withValues(alpha: 0.25),
+                        color:
+                            colors.primary.defaultValue.withValues(alpha: 0.25),
                         width: 1,
                       ),
                     ),
-                    child: const Center(
+                    child: Center(
                       child: Icon(
                         Icons.logout_rounded,
-                        color: Color(0xFFFF640A),
+                        color: colors.primary.defaultValue,
                         size: 26,
                       ),
                     ),
                   ),
                   const Gap(18),
-                  const Text(
-                    'Sign Out',
+                  Text(
+                    locale.signOutConfirmTitle,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
-                      color: Color(0xFFF3F4F6),
+                      color: colors.text.defaultValue,
                     ),
                   ),
                   const Gap(8),
-                  const Text(
-                    'Are you sure you want to sign out of Betopia AI?',
+                  Text(
+                    locale.signOutConfirmDescription,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 13,
-                      color: Color(0xFF9CA3AF),
+                      color: colors.text.muted,
                       height: 1.4,
                     ),
                   ),
@@ -163,11 +169,11 @@ class _HomePageState extends ConsumerState<HomePage> {
                         vertical: 14,
                       ),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF0F1017),
+                        color: colors.background.canvas,
                         borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: const Color(0xFF242735)),
+                        border: Border.all(color: colors.border.defaultValue),
                       ),
-                      child: const Row(
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(
@@ -176,15 +182,15 @@ class _HomePageState extends ConsumerState<HomePage> {
                             child: CircularProgressIndicator(
                               strokeWidth: 2.4,
                               valueColor: AlwaysStoppedAnimation<Color>(
-                                Color(0xFFFF640A),
+                                colors.primary.defaultValue,
                               ),
                             ),
                           ),
-                          Gap(12),
+                          const Gap(12),
                           Text(
-                            'Signing out...',
+                            locale.signingOut,
                             style: TextStyle(
-                              color: Color(0xFFE5E7EB),
+                              color: colors.text.defaultValue,
                               fontSize: 13,
                               fontWeight: FontWeight.w500,
                             ),
@@ -200,15 +206,15 @@ class _HomePageState extends ConsumerState<HomePage> {
                             onPressed: () => Navigator.of(dialogContext).pop(),
                             style: OutlinedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(vertical: 12),
-                              side: const BorderSide(color: Color(0xFF2E3342)),
+                              side: BorderSide(color: colors.border.subtle),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              foregroundColor: const Color(0xFFD1D5DB),
+                              foregroundColor: colors.text.muted,
                             ),
-                            child: const Text(
-                              'Cancel',
-                              style: TextStyle(
+                            child: Text(
+                              locale.cancel,
+                              style: const TextStyle(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -220,26 +226,31 @@ class _HomePageState extends ConsumerState<HomePage> {
                           child: ElevatedButton(
                             onPressed: () async {
                               setDialogState(() => isSubmitting = true);
-                              if (dialogContext.mounted) {
-                                Future.delayed(const Duration(milliseconds: 1000), () async {
-                                  await ref.read(logoutProvider.notifier).call();
-                                  Navigator.of(dialogContext).pop();
-                                });
-                              }
+                              Future.delayed(
+                                const Duration(milliseconds: 1000),
+                                () async {
+                                  await ref
+                                      .read(logoutProvider.notifier)
+                                      .call();
+                                  if (dialogContext.mounted) {
+                                    Navigator.of(dialogContext).pop();
+                                  }
+                                },
+                              );
 
                             },
                             style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(vertical: 12),
-                              backgroundColor: const Color(0xFFFF640A),
-                              foregroundColor: Colors.white,
+                              backgroundColor: colors.primary.defaultValue,
+                              foregroundColor: colors.text.defaultValue,
                               elevation: 0,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
                             ),
-                            child: const Text(
-                              'Yes, Sign Out',
-                              style: TextStyle(
+                            child: Text(
+                              locale.yesSignOut,
+                              style: const TextStyle(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -263,6 +274,8 @@ class _HomePageState extends ConsumerState<HomePage> {
     final screenWidth = MediaQuery.of(context).size.width;
     final isWideScreen = screenWidth >= 800;
     final isLoggingOut = ref.watch(logoutProvider).isLoading;
+    final colors = context.color;
+    final locale = context.locale;
 
     final mainContent = DotGridBackground(
       child: SafeArea(
@@ -276,7 +289,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   // Large Emblem
-                  const BetopiaIcon(size: 80,),
+                  const BetopiaIcon(size: 80),
                   const Gap(10),
 
                   // Greeting Header
@@ -284,16 +297,15 @@ class _HomePageState extends ConsumerState<HomePage> {
                   const Gap(10),
 
                   // Subtitle
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 24),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
                     child: Text(
-                      'Intelligent conversation, crafted for those who build '
-                      'what others only imagine.',
+                      locale.homeSubtitle,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15,
                         height: 1.45,
-                        color: Color(0xFF8E95A5),
+                        color: colors.text.muted,
                         letterSpacing: -0.1,
                       ),
                     ),
@@ -344,13 +356,12 @@ class _HomePageState extends ConsumerState<HomePage> {
                   const Gap(36),
 
                   // Footer Disclaimer
-                  const Text(
-                    'Betopia AI can make mistakes. Betopia doesn\'t '
-                    'use your workspace data to train its models.',
+                  Text(
+                    locale.disclaimerBetopiaAi,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 11,
-                      color: Color(0xFF4B5563),
+                      color: colors.text.muted.withValues(alpha: 0.7),
                       height: 1.4,
                     ),
                   ),
@@ -372,9 +383,9 @@ class _HomePageState extends ConsumerState<HomePage> {
                   vertical: 24,
                 ),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF161822),
+                  color: colors.background.surface,
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: const Color(0xFF242735)),
+                  border: Border.all(color: colors.border.defaultValue),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withValues(alpha: 0.4),
@@ -382,7 +393,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     ),
                   ],
                 ),
-                child: const Column(
+                child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SizedBox(
@@ -391,15 +402,15 @@ class _HomePageState extends ConsumerState<HomePage> {
                       child: CircularProgressIndicator(
                         strokeWidth: 2.8,
                         valueColor: AlwaysStoppedAnimation<Color>(
-                          Color(0xFFFF640A),
+                          colors.primary.defaultValue,
                         ),
                       ),
                     ),
-                    Gap(16),
+                    const Gap(16),
                     Text(
-                      'Signing out...',
+                      locale.signingOut,
                       style: TextStyle(
-                        color: Color(0xFFE5E7EB),
+                        color: colors.text.defaultValue,
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
                       ),
@@ -414,7 +425,7 @@ class _HomePageState extends ConsumerState<HomePage> {
     if (isWideScreen) {
       return Scaffold(
         key: _scaffoldKey,
-        backgroundColor: const Color(0xFF0C0D11),
+        backgroundColor: colors.background.canvas,
         body: Stack(
           children: [
             Row(
@@ -441,12 +452,12 @@ class _HomePageState extends ConsumerState<HomePage> {
                       scrolledUnderElevation: 0,
                       leading: !_isSidebarOpen
                           ? IconButton(
-                              icon: const Icon(
+                              icon: Icon(
                                 Icons.view_sidebar_outlined,
                                 size: 20,
-                                color: Color(0xFF9CA3AF),
+                                color: colors.text.muted,
                               ),
-                              tooltip: 'Open sidebar',
+                              tooltip: locale.openSidebar,
                               onPressed: () {
                                 setState(() => _isSidebarOpen = true);
                               },
@@ -454,12 +465,12 @@ class _HomePageState extends ConsumerState<HomePage> {
                           : null,
                       actions: [
                         IconButton(
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.logout_rounded,
-                            color: Color(0xFF9CA3AF),
+                            color: colors.text.muted,
                             size: 20,
                           ),
-                          tooltip: 'Sign Out',
+                          tooltip: locale.signOut,
                           onPressed: _showLogoutConfirmationDialog,
                         ),
                         const Gap(8),
@@ -479,9 +490,9 @@ class _HomePageState extends ConsumerState<HomePage> {
     // Mobile / Compact Screen
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: const Color(0xFF0C0D11),
+      backgroundColor: colors.background.canvas,
       drawer: Drawer(
-        backgroundColor: const Color(0xFF0C0D11),
+        backgroundColor: colors.background.canvas,
         child: ChatSidebar(
           isDrawer: true,
           selectedChatId: _selectedChatId,
@@ -507,12 +518,12 @@ class _HomePageState extends ConsumerState<HomePage> {
         elevation: 0,
         scrolledUnderElevation: 0,
         leading: IconButton(
-          icon: const Icon(
+          icon: Icon(
             Icons.menu_rounded,
             size: 22,
-            color: Color(0xFF9CA3AF),
+            color: colors.text.muted,
           ),
-          tooltip: 'Open sidebar',
+          tooltip: locale.openSidebar,
           onPressed: () {
             _scaffoldKey.currentState?.openDrawer();
           },
@@ -520,12 +531,12 @@ class _HomePageState extends ConsumerState<HomePage> {
         title: const BetopiaLogo(fontSize: 18, iconSize: 24),
         actions: [
           IconButton(
-            icon: const Icon(
+            icon: Icon(
               Icons.logout_rounded,
-              color: Color(0xFF9CA3AF),
+              color: colors.text.muted,
               size: 20,
             ),
-            tooltip: 'Sign Out',
+            tooltip: locale.signOut,
             onPressed: _showLogoutConfirmationDialog,
           ),
           const Gap(8),
@@ -541,7 +552,6 @@ class _HomePageState extends ConsumerState<HomePage> {
   }
 }
 
-
 class _HeroGreeting extends StatelessWidget {
   const _HeroGreeting({required this.name});
 
@@ -549,39 +559,45 @@ class _HeroGreeting extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+    final locale = context.locale;
+    final greeting = locale.helloGreeting(name);
+    final prefix = greeting.contains(name)
+        ? greeting.substring(0, greeting.indexOf(name))
+        : 'Hello, ';
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.baseline,
       textBaseline: TextBaseline.alphabetic,
       children: [
-        const Text(
-          'Hello, ',
+        Text(
+          prefix,
           style: TextStyle(
             fontSize: 42,
             fontWeight: FontWeight.w800,
-            color: Colors.white,
+            color: colors.text.defaultValue,
             letterSpacing: -1.2,
           ),
         ),
         ShaderMask(
           shaderCallback: (bounds) {
-            return const LinearGradient(
+            return LinearGradient(
               colors: [
-                Color(0xFFFF7A1A),
-                Color(0xFFFF9A4C),
-                Color(0xFFC084FC),
-                Color(0xFFD8B4FE),
+                colors.primary.defaultValue,
+                colors.accent.gold,
+                colors.accent.purple,
               ],
-              stops: [0.0, 0.40, 0.85, 1.0],
+              stops: const [0.0, 0.5, 1.0],
             ).createShader(bounds);
           },
           child: Text(
             name,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 42,
               fontWeight: FontWeight.w800,
-              color: Colors.white,
+              color: colors.text.defaultValue,
               letterSpacing: -1.2,
             ),
           ),
@@ -598,13 +614,16 @@ class _AttachMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+    final locale = context.locale;
+
     return Container(
       width: 200,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
-        color: const Color(0xFF161820),
+        color: colors.background.surface,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFF262833), width: 0.9),
+        border: Border.all(color: colors.border.defaultValue, width: 0.9),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.45),
@@ -618,31 +637,31 @@ class _AttachMenu extends StatelessWidget {
         children: [
           _AttachMenuItem(
             icon: Icons.attach_file_rounded,
-            iconColor: const Color(0xFFFF640A),
-            iconBg: const Color(0xFF2B1D16),
-            title: 'Add Files & Photos',
+            iconColor: colors.primary.defaultValue,
+            iconBg: colors.primary.defaultValue.withValues(alpha: 0.15),
+            title: locale.addFilesAndPhotos,
             onTap: onClose,
           ),
           const Gap(4),
           _AttachMenuItem(
             icon: Icons.storage_rounded,
-            iconColor: const Color(0xFF10B981),
-            iconBg: const Color(0xFF122820),
-            title: 'Knowledge Base',
-            trailing: const Icon(
+            iconColor: colors.status.success,
+            iconBg: colors.status.success.withValues(alpha: 0.15),
+            title: locale.knowledgeBase,
+            trailing: Icon(
               Icons.arrow_forward_rounded,
               size: 13,
-              color: Color(0xFF6B7280),
+              color: colors.text.muted,
             ),
             onTap: onClose,
           ),
           const Gap(4),
           _AttachMenuItem(
             icon: Icons.build_outlined,
-            iconColor: const Color(0xFF6B7280),
-            iconBg: const Color(0xFF1D2028),
-            title: 'Tools & Skills',
-            badge: 'Coming Soon',
+            iconColor: colors.text.muted,
+            iconBg: colors.border.subtle,
+            title: locale.toolsAndSkills,
+            badge: locale.comingSoon,
             onTap: onClose,
           ),
         ],
@@ -672,6 +691,8 @@ class _AttachMenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(10),
@@ -691,19 +712,19 @@ class _AttachMenuItem extends StatelessWidget {
             Expanded(
               child: Text(
                 title,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 12.5,
                   fontWeight: FontWeight.w500,
-                  color: Color(0xFFE5E7EB),
+                  color: colors.text.defaultValue,
                 ),
               ),
             ),
             if (badge != null)
               Text(
                 badge!,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 9.5,
-                  color: Color(0xFF6B7280),
+                  color: colors.text.muted,
                 ),
               ),
             if (trailing case final Widget widget) widget,
@@ -729,11 +750,14 @@ class _PromptCapsule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+    final locale = context.locale;
+
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0xFF13151D),
+        color: colors.background.surface,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: const Color(0xFF242732), width: 1.0),
+        border: Border.all(color: colors.border.defaultValue, width: 1.0),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.35),
@@ -753,24 +777,23 @@ class _PromptCapsule extends StatelessWidget {
                 // Full Width Text Input
                 TextField(
                   controller: controller,
-                 // minLines: 1,
                   maxLines: 5,
                   onSubmitted: onSubmit,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 14,
-                    color: Colors.white,
+                    color: colors.text.defaultValue,
                   ),
-                  decoration: const InputDecoration(
-                    hintText: 'What will you create today?',
+                  decoration: InputDecoration(
+                    hintText: locale.whatWillYouCreateToday,
                     hintStyle: TextStyle(
                       fontSize: 14,
-                      color: Color(0xFF6B7280),
+                      color: colors.text.muted,
                     ),
                     border: InputBorder.none,
                     enabledBorder: InputBorder.none,
                     focusedBorder: InputBorder.none,
                     isDense: true,
-                    contentPadding: EdgeInsets.fromLTRB(0, 8, 0, 8),
+                    contentPadding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
                   ),
                 ),
 
@@ -784,7 +807,7 @@ class _PromptCapsule extends StatelessWidget {
                       width: 34,
                       height: 34,
                       decoration: BoxDecoration(
-                        color: const Color(0xFF1E212B),
+                        color: colors.background.canvas,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Icon(
@@ -792,7 +815,7 @@ class _PromptCapsule extends StatelessWidget {
                             ? Icons.close_rounded
                             : Icons.attach_file_rounded,
                         size: 18,
-                        color: const Color(0xFFFF640A),
+                        color: colors.primary.defaultValue,
                       ),
                     ),
                   ),
@@ -806,10 +829,10 @@ class _PromptCapsule extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       IconButton(
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.translate_rounded,
                           size: 18,
-                          color: Color(0xFF6B7280),
+                          color: colors.text.muted,
                         ),
                         onPressed: () {},
                         padding: EdgeInsets.zero,
@@ -819,10 +842,10 @@ class _PromptCapsule extends StatelessWidget {
                         ),
                       ),
                       IconButton(
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.mic_none_rounded,
                           size: 19,
-                          color: Color(0xFF6B7280),
+                          color: colors.text.muted,
                         ),
                         onPressed: () {},
                         padding: EdgeInsets.zero,
@@ -840,13 +863,13 @@ class _PromptCapsule extends StatelessWidget {
                           width: 34,
                           height: 34,
                           decoration: BoxDecoration(
-                            color:  Theme.of(context).buttonTheme.colorScheme?.primary,
+                            color: colors.primary.defaultValue,
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          child:  Icon(
+                          child: Icon(
                             Icons.arrow_upward_rounded,
                             size: 18,
-                            color: Theme.of(context).buttonTheme.colorScheme?.inversePrimary,
+                            color: colors.text.defaultValue,
                           ),
                         ),
                       ),
@@ -858,8 +881,8 @@ class _PromptCapsule extends StatelessWidget {
           ),
 
           // Divider inside capsule
-          const Divider(
-            color: Color(0xFF1D2029),
+          Divider(
+            color: colors.border.subtle,
             height: 1,
             thickness: 0.8,
           ),
@@ -872,8 +895,8 @@ class _PromptCapsule extends StatelessWidget {
                 // AUTO Dropdown
                 _CapsulePill(
                   icon: Icons.auto_awesome_rounded,
-                  iconColor: const Color(0xFF9CA3AF),
-                  label: 'AUTO',
+                  iconColor: colors.text.muted,
+                  label: locale.auto,
                   hasDropdown: true,
                   onTap: () {},
                 ),
@@ -882,8 +905,8 @@ class _PromptCapsule extends StatelessWidget {
                 // AGENT Pill
                 _CapsulePill(
                   icon: Icons.smart_toy_outlined,
-                  iconColor: const Color(0xFF9CA3AF),
-                  label: 'AGENT',
+                  iconColor: colors.text.muted,
+                  label: locale.agent,
                   hasDot: true,
                   onTap: () {},
                 ),
@@ -896,10 +919,10 @@ class _PromptCapsule extends StatelessWidget {
                     vertical: 4,
                   ),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF1E212B),
+                    color: colors.background.canvas,
                     borderRadius: BorderRadius.circular(6),
                   ),
-                  child: const Row(
+                  child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
@@ -907,15 +930,15 @@ class _PromptCapsule extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
-                          color: Color(0xFFFF640A),
+                          color: colors.primary.defaultValue,
                         ),
                       ),
-                      Gap(4),
+                      const Gap(4),
                       Text(
-                        'commands',
+                        locale.commands,
                         style: TextStyle(
                           fontSize: 11,
-                          color: Color(0xFF9CA3AF),
+                          color: colors.text.muted,
                         ),
                       ),
                     ],
@@ -949,14 +972,16 @@ class _CapsulePill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
-          color: const Color(0xFF1B1D26),
+          color: colors.background.surface,
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: const Color(0xFF262833), width: 0.8),
+          border: Border.all(color: colors.border.defaultValue, width: 0.8),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -965,10 +990,10 @@ class _CapsulePill extends StatelessWidget {
             const Gap(5),
             Text(
               label,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 11.5,
                 fontWeight: FontWeight.w600,
-                color: Color(0xFFD1D5DB),
+                color: colors.text.defaultValue,
                 letterSpacing: 0.4,
               ),
             ),
@@ -977,18 +1002,18 @@ class _CapsulePill extends StatelessWidget {
               Container(
                 width: 5,
                 height: 5,
-                decoration: const BoxDecoration(
-                  color: Color(0xFF10B981),
+                decoration: BoxDecoration(
+                  color: colors.status.success,
                   shape: BoxShape.circle,
                 ),
               ),
             ],
             if (hasDropdown) ...[
               const Gap(4),
-              const Icon(
+              Icon(
                 Icons.keyboard_arrow_down_rounded,
                 size: 14,
-                color: Color(0xFF9CA3AF),
+                color: colors.text.muted,
               ),
             ],
           ],
@@ -1009,6 +1034,8 @@ class _ModeChipsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.locale;
+
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
@@ -1016,38 +1043,38 @@ class _ModeChipsRow extends StatelessWidget {
         children: [
           _ModeChip(
             icon: Icons.slideshow_outlined,
-            label: 'Slides',
-            badge: 'SOON',
-            isSelected: selectedMode == 'Slides',
-            onTap: () => onSelectMode('Slides'),
+            label: locale.slides,
+            badge: locale.soon,
+            isSelected: selectedMode == locale.slides,
+            onTap: () => onSelectMode(locale.slides),
           ),
           const Gap(8),
           _ModeChip(
             icon: Icons.psychology_outlined,
-            label: 'Deep Research',
+            label: locale.deepResearch,
             isSpecial: true,
-            isSelected: selectedMode == 'Deep Research',
-            onTap: () => onSelectMode('Deep Research'),
+            isSelected: selectedMode == locale.deepResearch,
+            onTap: () => onSelectMode(locale.deepResearch),
           ),
           const Gap(8),
           _ModeChip(
             icon: Icons.code_rounded,
-            label: 'Code',
-            badge: 'SOON',
-            isSelected: selectedMode == 'Code',
-            onTap: () => onSelectMode('Code'),
+            label: locale.code,
+            badge: locale.soon,
+            isSelected: selectedMode == locale.code,
+            onTap: () => onSelectMode(locale.code),
           ),
           const Gap(8),
           _ModeChip(
             icon: Icons.image_outlined,
-            label: 'Image Gen',
+            label: locale.imageGen,
             isPurple: true,
-            isSelected: selectedMode == 'Image Gen',
-            onTap: () => onSelectMode('Image Gen'),
+            isSelected: selectedMode == locale.imageGen,
+            onTap: () => onSelectMode(locale.imageGen),
           ),
           const Gap(8),
           _ModeChip(
-            label: 'More',
+            label: locale.more,
             hasDropdown: true,
             isSelected: false,
             onTap: () {},
@@ -1081,18 +1108,20 @@ class _ModeChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color bg = const Color(0xFF161820);
-    Color border = const Color(0xFF262833);
-    Color textColor = const Color(0xFFD1D5DB);
+    final colors = context.color;
+
+    Color bg = colors.background.surface;
+    Color border = colors.border.defaultValue;
+    Color textColor = colors.text.muted;
 
     if (isSpecial) {
-      bg = const Color(0xFF2A1C14);
-      border = const Color(0xFFFF640A).withValues(alpha: 0.6);
-      textColor = const Color(0xFFFF9548);
+      bg = colors.primary.defaultValue.withValues(alpha: 0.15);
+      border = colors.primary.defaultValue.withValues(alpha: 0.6);
+      textColor = colors.primary.defaultValue;
     } else if (isPurple) {
-      bg = const Color(0xFF211C33);
-      border = const Color(0xFFA855F7).withValues(alpha: 0.5);
-      textColor = const Color(0xFFD8B4FE);
+      bg = colors.accent.purple.withValues(alpha: 0.15);
+      border = colors.accent.purple.withValues(alpha: 0.5);
+      textColor = colors.accent.purple;
     }
 
     return GestureDetector(
@@ -1124,25 +1153,25 @@ class _ModeChip extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF242732),
+                  color: colors.background.canvas,
                   borderRadius: BorderRadius.circular(4),
                 ),
                 child: Text(
                   badge!,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 8.5,
                     fontWeight: FontWeight.w700,
-                    color: Color(0xFF8E95A5),
+                    color: colors.text.muted,
                   ),
                 ),
               ),
             ],
             if (hasDropdown) ...[
               const Gap(4),
-              const Icon(
+              Icon(
                 Icons.keyboard_arrow_down_rounded,
                 size: 14,
-                color: Color(0xFF8E95A5),
+                color: colors.text.muted,
               ),
             ],
           ],
@@ -1151,3 +1180,4 @@ class _ModeChip extends StatelessWidget {
     );
   }
 }
+

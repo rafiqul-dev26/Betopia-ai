@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 
+import '../../../../core/extensions/localization.dart';
 import '../../../core/application_state/logout_provider/logout_provider.dart';
+import '../../../core/theme/theme.dart';
 import '../../../core/widgets/betopia_logo.dart';
 
 /// Item representation in the chat history sidebar.
@@ -46,42 +48,46 @@ class _ChatSidebarState extends ConsumerState<ChatSidebar> {
   bool _isWorkspaceExpanded = true;
   bool _isLibraryExpanded = true;
 
-  final List<ChatHistoryItem> _historyItems = const [
-    ChatHistoryItem(
-      id: '1',
-      title: 'How Solve a Critical TI',
-      group: 'YESTERDAY',
-    ),
-    ChatHistoryItem(
-      id: '2',
-      title: 'Chat Gpt Like Applicat',
-      group: 'YESTERDAY',
-    ),
-    ChatHistoryItem(
-      id: '3',
-      title: 'You Are an Autonomous',
-      group: 'YESTERDAY',
-    ),
-    ChatHistoryItem(
-      id: '4',
-      title: 'Image Generate Where',
-      group: 'YESTERDAY',
-    ),
-    ChatHistoryItem(
-      id: '5',
-      title: 'Quick Greeting',
-      group: 'YESTERDAY',
-    ),
-  ];
+  List<ChatHistoryItem> _getHistoryItems(BuildContext context) => [
+        ChatHistoryItem(
+          id: '1',
+          title: 'How Solve a Critical TI',
+          group: context.locale.yesterday,
+        ),
+        ChatHistoryItem(
+          id: '2',
+          title: 'Chat Gpt Like Applicat',
+          group: context.locale.yesterday,
+        ),
+        ChatHistoryItem(
+          id: '3',
+          title: 'You Are an Autonomous',
+          group: context.locale.yesterday,
+        ),
+        ChatHistoryItem(
+          id: '4',
+          title: 'Image Generate Where',
+          group: context.locale.yesterday,
+        ),
+        ChatHistoryItem(
+          id: '5',
+          title: 'Quick Greeting',
+          group: context.locale.yesterday,
+        ),
+      ];
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+    final locale = context.locale;
+    final historyItems = _getHistoryItems(context);
+
     return Container(
       width: 270,
-      decoration: const BoxDecoration(
-        color: Color(0xFF0C0D11),
+      decoration: BoxDecoration(
+        color: colors.background.canvas,
         border: Border(
-          right: BorderSide(color: Color(0xFF1E212B), width: 0.8),
+          right: BorderSide(color: colors.border.subtle, width: 0.8),
         ),
       ),
       child: SafeArea(
@@ -96,13 +102,13 @@ class _ChatSidebarState extends ConsumerState<ChatSidebar> {
                   const BetopiaLogo(fontSize: 17, iconSize: 22),
                   const Spacer(),
                   IconButton(
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.view_sidebar_outlined,
                       size: 19,
-                      color: Color(0xFF9CA3AF),
+                      color: colors.text.muted,
                     ),
                     splashRadius: 18,
-                    tooltip: 'Collapse sidebar',
+                    tooltip: locale.collapseSidebar,
                     onPressed: widget.onToggleCollapse,
                   ),
                 ],
@@ -121,28 +127,28 @@ class _ChatSidebarState extends ConsumerState<ChatSidebar> {
                     vertical: 10,
                   ),
                   decoration: BoxDecoration(
-                    color: const Color(0x1AFF640A),
+                    color: colors.primary.defaultValue.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: const Color(0x4DFF640A),
+                      color: colors.primary.defaultValue.withValues(alpha: 0.3),
                       width: 1,
                     ),
                   ),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
                         Icons.add_circle_outline_rounded,
                         size: 16,
-                        color: Color(0xFFFF640A),
+                        color: colors.primary.defaultValue,
                       ),
-                      Gap(8),
+                      const Gap(8),
                       Text(
-                        'New Chat',
+                        locale.newChat,
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
-                          color: Color(0xFFFF8B4A),
+                          color: colors.primary.defaultValue,
                         ),
                       ),
                     ],
@@ -157,33 +163,35 @@ class _ChatSidebarState extends ConsumerState<ChatSidebar> {
               child: ListView(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
                     child: Text(
-                      'CHAT HISTORY',
+                      locale.chatHistory,
                       style: TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.w700,
                         letterSpacing: 0.7,
-                        color: Color(0xFF6B7280),
+                        color: colors.text.muted,
                       ),
                     ),
                   ),
                   const Gap(4),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
                     child: Text(
-                      'YESTERDAY',
+                      locale.yesterday,
                       style: TextStyle(
                         fontSize: 9.5,
                         fontWeight: FontWeight.w600,
                         letterSpacing: 0.5,
-                        color: Color(0xFF4B5563),
+                        color: colors.text.muted.withValues(alpha: 0.7),
                       ),
                     ),
                   ),
                   const Gap(2),
-                  for (final item in _historyItems)
+                  for (final item in historyItems)
                     _HistoryTile(
                       item: item,
                       isSelected: widget.selectedChatId == item.id,
@@ -193,11 +201,11 @@ class _ChatSidebarState extends ConsumerState<ChatSidebar> {
               ),
             ),
 
-            const Divider(color: Color(0xFF1E212B), height: 1),
+            Divider(color: colors.border.subtle, height: 1),
 
             // Collapsible Workspace Section
             _CollapsibleGroup(
-              title: 'WORKSPACE',
+              title: locale.workspace,
               isExpanded: _isWorkspaceExpanded,
               onToggle: () {
                 setState(() => _isWorkspaceExpanded = !_isWorkspaceExpanded);
@@ -205,22 +213,22 @@ class _ChatSidebarState extends ConsumerState<ChatSidebar> {
               children: [
                 _NavSubTile(
                   icon: Icons.build_outlined,
-                  title: 'Tools',
+                  title: locale.tools,
                   onTap: () {},
                 ),
                 _NavSubTile(
                   icon: Icons.hub_outlined,
-                  title: 'Connectors',
+                  title: locale.connectors,
                   onTap: () {},
                 ),
               ],
             ),
 
-            const Divider(color: Color(0xFF1E212B), height: 1),
+            Divider(color: colors.border.subtle, height: 1),
 
             // Collapsible Library Section
             _CollapsibleGroup(
-              title: 'LIBRARY',
+              title: locale.library,
               isExpanded: _isLibraryExpanded,
               onToggle: () {
                 setState(() => _isLibraryExpanded = !_isLibraryExpanded);
@@ -228,23 +236,23 @@ class _ChatSidebarState extends ConsumerState<ChatSidebar> {
               children: [
                 _NavSubTile(
                   icon: Icons.library_books_outlined,
-                  title: 'Asset Library',
+                  title: locale.assetLibrary,
                   onTap: () {},
                 ),
                 _NavSubTile(
                   icon: Icons.history_rounded,
-                  title: 'Temporal Archive',
+                  title: locale.temporalArchive,
                   onTap: () {},
                 ),
               ],
             ),
 
-            const Divider(color: Color(0xFF1E212B), height: 1),
+            Divider(color: colors.border.subtle, height: 1),
 
             // User Profile Section
             _UserProfileTile(
               name: 'Md rafiqul islam',
-              role: 'standard',
+              role: locale.standardRole,
               onSignOut: widget.onSignOut ?? () {
                 ref.read(logoutProvider.notifier).call();
               },
@@ -269,20 +277,22 @@ class _HistoryTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+
     return Container(
       margin: const EdgeInsets.only(bottom: 2),
       decoration: BoxDecoration(
-        color: isSelected ? const Color(0xFF1B1D25) : Colors.transparent,
+        color: isSelected ? colors.background.surface : Colors.transparent,
         borderRadius: BorderRadius.circular(8),
       ),
       child: ListTile(
         dense: true,
         visualDensity: const VisualDensity(horizontal: -3, vertical: -3),
         contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
-        leading: const Icon(
+        leading: Icon(
           Icons.chat_bubble_outline_rounded,
           size: 14,
-          color: Color(0xFF6B7280),
+          color: colors.text.muted,
         ),
         title: Text(
           item.title,
@@ -291,14 +301,13 @@ class _HistoryTile extends StatelessWidget {
           style: TextStyle(
             fontSize: 12.5,
             fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
-            color: isSelected
-                ? const Color(0xFFF3F4F6)
-                : const Color(0xFF9CA3AF),
+            color:
+                isSelected ? colors.text.defaultValue : colors.text.muted,
           ),
         ),
         onTap: onTap,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        hoverColor: const Color(0xFF161820),
+        hoverColor: colors.background.surface,
       ),
     );
   }
@@ -319,6 +328,8 @@ class _CollapsibleGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -330,11 +341,11 @@ class _CollapsibleGroup extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 10,
                     fontWeight: FontWeight.w700,
                     letterSpacing: 0.7,
-                    color: Color(0xFF6B7280),
+                    color: colors.text.muted,
                   ),
                 ),
                 const Spacer(),
@@ -343,7 +354,7 @@ class _CollapsibleGroup extends StatelessWidget {
                       ? Icons.keyboard_arrow_down_rounded
                       : Icons.keyboard_arrow_right_rounded,
                   size: 16,
-                  color: const Color(0xFF6B7280),
+                  color: colors.text.muted,
                 ),
               ],
             ),
@@ -369,21 +380,23 @@ class _NavSubTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+
     return InkWell(
       onTap: onTap,
-      hoverColor: const Color(0xFF161820),
+      hoverColor: colors.background.surface,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
         child: Row(
           children: [
-            Icon(icon, size: 15, color: const Color(0xFF9CA3AF)),
+            Icon(icon, size: 15, color: colors.text.muted),
             const Gap(10),
             Text(
               title,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 12.5,
                 fontWeight: FontWeight.w400,
-                color: Color(0xFFD1D5DB),
+                color: colors.text.defaultValue,
               ),
             ),
           ],
@@ -406,28 +419,34 @@ class _UserProfileTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+    final locale = context.locale;
+
     return PopupMenuButton<String>(
-      color: const Color(0xFF161820),
+      color: colors.background.surface,
       offset: const Offset(0, -60),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
-        side: const BorderSide(color: Color(0xFF242732)),
+        side: BorderSide(color: colors.border.defaultValue),
       ),
       onSelected: (value) {
         if (value == 'logout') {
           onSignOut();
         }
       },
-      itemBuilder: (context) => const [
+      itemBuilder: (context) => [
         PopupMenuItem(
           value: 'profile',
           child: Row(
             children: [
-              Icon(Icons.person_outline, size: 16, color: Color(0xFF9CA3AF)),
-              Gap(8),
+              Icon(Icons.person_outline, size: 16, color: colors.text.muted),
+              const Gap(8),
               Text(
-                'Account Settings',
-                style: TextStyle(color: Colors.white, fontSize: 13),
+                locale.accountSettings,
+                style: TextStyle(
+                  color: colors.text.defaultValue,
+                  fontSize: 13,
+                ),
               ),
             ],
           ),
@@ -436,11 +455,18 @@ class _UserProfileTile extends StatelessWidget {
           value: 'logout',
           child: Row(
             children: [
-              Icon(Icons.logout_rounded, size: 16, color: Color(0xFFFF640A)),
-              Gap(8),
+              Icon(
+                Icons.logout_rounded,
+                size: 16,
+                color: colors.primary.defaultValue,
+              ),
+              const Gap(8),
               Text(
-                'Sign Out',
-                style: TextStyle(color: Color(0xFFFF8B4A), fontSize: 13),
+                locale.signOut,
+                style: TextStyle(
+                  color: colors.primary.defaultValue,
+                  fontSize: 13,
+                ),
               ),
             ],
           ),
@@ -455,12 +481,18 @@ class _UserProfileTile extends StatelessWidget {
               height: 32,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                gradient: const LinearGradient(
-                  colors: [Color(0xFFFF8B4A), Color(0xFFC084FC)],
+                gradient: LinearGradient(
+                  colors: [
+                    colors.primary.defaultValue,
+                    colors.accent.purple,
+                  ],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
-                border: Border.all(color: const Color(0xFF333746), width: 1.5),
+                border: Border.all(
+                  color: colors.border.defaultValue,
+                  width: 1.5,
+                ),
               ),
               child: const Center(
                 child: Text(
@@ -479,26 +511,26 @@ class _UserProfileTile extends StatelessWidget {
                     name,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12.5,
                       fontWeight: FontWeight.w600,
-                      color: Color(0xFFE5E7EB),
+                      color: colors.text.defaultValue,
                     ),
                   ),
                   Text(
                     role,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 10.5,
-                      color: Color(0xFF9CA3AF),
+                      color: colors.text.muted,
                     ),
                   ),
                 ],
               ),
             ),
-            const Icon(
+            Icon(
               Icons.keyboard_arrow_down_rounded,
               size: 16,
-              color: Color(0xFF6B7280),
+              color: colors.text.muted,
             ),
           ],
         ),
@@ -506,3 +538,4 @@ class _UserProfileTile extends StatelessWidget {
     );
   }
 }
+

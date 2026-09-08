@@ -78,13 +78,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get logout => 'تسجيل الخروج';
 
   @override
-  String get getStarted => 'ابدأ';
+  String get getStarted => 'ابدأ الآن';
 
   @override
   String get rememberMe => 'تذكرني';
 
   @override
-  String get forgotPassword => 'نسيت كلمة المرور';
+  String get forgotPassword => 'هل نسيت كلمة المرور؟';
 
   @override
   String get backToLogin => 'العودة إلى تسجيل الدخول';
@@ -232,8 +232,223 @@ class AppLocalizationsAr extends AppLocalizations {
   String get signInAgain => 'تسجيل الدخول مرة أخرى';
 
   @override
-  String get appTitle => 'قالب فلاتر';
+  String get somethingWentWrong => 'حدث خطأ ما.';
 
   @override
-  String get somethingWentWrong => 'حدث خطأ ما.';
+  String get beta => 'BETA';
+
+  @override
+  String get heroHeadlinePrefix => 'الذكاء في ';
+
+  @override
+  String get heroHeadlineGradient => 'سرعة التفكير.';
+
+  @override
+  String get heroSubtitle =>
+      'الاستنتاج والبرمجة والمستندات والصور والصوت — موجهة إلى المحرك المناسب تلقائيًا.';
+
+  @override
+  String get intelligenceLayer => 'طبقة الذكاء';
+
+  @override
+  String get intelligenceLayerDesc =>
+      'توجيه متكيف عبر النماذج الرائدة في الوقت الفعلي';
+
+  @override
+  String get zeroDataRetention => 'عدم الاحتفاظ بالبيانات';
+
+  @override
+  String get zeroDataRetentionDesc =>
+      'خصوصية على مستوى المؤسسات مع عزل الذاكرة المؤقتة';
+
+  @override
+  String get activeEnterpriseEngines => 'محركات المؤسسات النشطة';
+
+  @override
+  String get welcomeBack => 'مرحبًا بعودتك';
+
+  @override
+  String get welcomeBackSubtitle => 'سجل الدخول لمتابعة محادثاتك من حيث توقفت.';
+
+  @override
+  String get signInWithGoogle => 'تسجيل الدخول باستخدام Google';
+
+  @override
+  String get logInWithSso => 'تسجيل الدخول باستخدام Betopia SSO';
+
+  @override
+  String get orSignInWithEmail => 'أو تسجيل الدخول بالبريد الإلكتروني';
+
+  @override
+  String get workEmail => 'بريد العمل الإلكتروني';
+
+  @override
+  String get workEmailHint => 'name@company.com';
+
+  @override
+  String get enterWorkEmailAndPassword =>
+      'يرجى إدخال كل من بريد العمل وكلمة المرور';
+
+  @override
+  String get signUpFree => 'سجل مجانًا';
+
+  @override
+  String helloGreeting(String name) {
+    return 'مرحبًا، $name';
+  }
+
+  @override
+  String get homeSubtitle =>
+      'محادثة ذكية، مصممة لأولئك الذين يبنون ما يتخيله الآخرون فقط.';
+
+  @override
+  String get whatWillYouCreateToday => 'ماذا ستنشئ اليوم؟';
+
+  @override
+  String get addFilesAndPhotos => 'إضافة ملفات وصور';
+
+  @override
+  String get knowledgeBase => 'قاعدة المعرفة';
+
+  @override
+  String get toolsAndSkills => 'الأدوات والمهارات';
+
+  @override
+  String get comingSoon => 'قريبًا';
+
+  @override
+  String get deepResearch => 'بحث متعمق';
+
+  @override
+  String get fastCreative => 'إبداع سريع';
+
+  @override
+  String get codeReasoning => 'برمجة واستنتاج';
+
+  @override
+  String get visionMultimodal => 'الرؤية والوسائط المتعددة';
+
+  @override
+  String get disclaimerBetopiaAi =>
+      'قد يرتكب Betopia AI أخطاء. لا يستخدم Betopia بيانات مساحة العمل الخاصة بك لتدريب نماذجه.';
+
+  @override
+  String get signOutConfirmTitle => 'تسجيل الخروج';
+
+  @override
+  String get signOutConfirmDescription =>
+      'هل أنت متأكد أنك تريد تسجيل الخروج من Betopia AI؟';
+
+  @override
+  String get signingOut => 'جارٍ تسجيل الخروج...';
+
+  @override
+  String get yesSignOut => 'نعم، تسجيل الخروج';
+
+  @override
+  String get cancel => 'إلغاء';
+
+  @override
+  String get accountSettings => 'إعدادات الحساب';
+
+  @override
+  String get newChat => 'محادثة جديدة';
+
+  @override
+  String get today => 'اليوم';
+
+  @override
+  String get yesterday => 'أمس';
+
+  @override
+  String get previous7Days => 'الأيام السبعة السابقة';
+
+  @override
+  String get openSidebar => 'فتح الشريط الجانبي';
+
+  @override
+  String get collapseSidebar => 'طي الشريط الجانبي';
+
+  @override
+  String processingQuery(String query, String mode) {
+    return 'جارٍ المعالجة: \"$query\" باستخدام Betopia AI ($mode)';
+  }
+
+  @override
+  String loadedConversation(String id) {
+    return 'تم تحميل المحادثة #$id';
+  }
+
+  @override
+  String get chatHistory => 'سجل المحادثات';
+
+  @override
+  String get workspace => 'مساحة العمل';
+
+  @override
+  String get tools => 'الأدوات';
+
+  @override
+  String get connectors => 'الموصلات';
+
+  @override
+  String get library => 'المكتبة';
+
+  @override
+  String get assetLibrary => 'مكتبة الأصول';
+
+  @override
+  String get temporalArchive => 'الأرشيف الزمني';
+
+  @override
+  String get standardRole => 'قياسي';
+
+  @override
+  String get heroHeadlineSuffix => ' أسرع.';
+
+  @override
+  String get featureFrontierModels =>
+      '+10 نماذج ذكاء اصطناعي رائدة في محادثة واحدة';
+
+  @override
+  String get featureStreaming => 'استجابات فورية ومتدفقة';
+
+  @override
+  String get featureEnterpriseSecurity => 'أمان على مستوى المؤسسات';
+
+  @override
+  String get footerCopyright => '© 2026 Betopia AI · الشروط · الخصوصية';
+
+  @override
+  String get passwordLabel => 'كلمة المرور';
+
+  @override
+  String get passwordHint => '••••••••';
+
+  @override
+  String get slides => 'الشرائح';
+
+  @override
+  String get code => 'البرمجة';
+
+  @override
+  String get imageGen => 'توليد الصور';
+
+  @override
+  String get more => 'المزيد';
+
+  @override
+  String get soon => 'قريباً';
+
+  @override
+  String get auto => 'تلقائي';
+
+  @override
+  String get agent => 'الوكيل';
+
+  @override
+  String get commands => 'الأوامر';
+
+  @override
+  String get signOut => 'تسجيل الخروج';
 }

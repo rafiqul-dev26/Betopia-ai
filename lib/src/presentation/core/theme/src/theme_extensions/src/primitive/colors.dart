@@ -49,3 +49,16 @@ abstract final class _Blue {
   static const Color s500 = Color(0xFF1971C2);
   static const Color s900 = Color(0xFF11293C);
 }
+
+/// Purple / Violet.
+abstract final class _Purple {
+  static const Color s300 = Color(0xFFD8B4FE);
+  static const Color s400 = Color(0xFFC084FC);
+  static const Color s900 = Color(0xFF2E1A47);
+}
+
+/// Gold / Amber accent.
+abstract final class _Gold {
+  static const Color s400 = Color(0xFFE2A850);
+  static const Color s900 = Color(0xFF2E2312);
+}

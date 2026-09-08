@@ -43,6 +43,12 @@ class ColorExtension extends ThemeExtension<ColorExtension> {
         dangerTint: _Red.s50,
         information: _Blue.s500,
         informationTint: _Blue.s50,
+      ),
+      accent = const ColorAccent._(
+        purple: _Purple.s400,
+        purpleTint: _Purple.s300,
+        gold: _Gold.s400,
+        goldTint: _Gold.s400,
       );
 
   const ColorExtension.dark()
@@ -79,6 +85,12 @@ class ColorExtension extends ThemeExtension<ColorExtension> {
         dangerTint: _Red.s900,
         information: _Blue.s500,
         informationTint: _Blue.s900,
+      ),
+      accent = const ColorAccent._(
+        purple: _Purple.s400,
+        purpleTint: _Purple.s900,
+        gold: _Gold.s400,
+        goldTint: _Gold.s900,
       );
 
   const ColorExtension._({
@@ -88,6 +100,7 @@ class ColorExtension extends ThemeExtension<ColorExtension> {
     required this.border,
     required this.background,
     required this.status,
+    required this.accent,
   });
 
   /// Which mode these bindings serve. [ThemeData] reads it so the two stay
@@ -99,6 +112,7 @@ class ColorExtension extends ThemeExtension<ColorExtension> {
   final ColorBorder border;
   final ColorBackground background;
   final ColorStatus status;
+  final ColorAccent accent;
 
   @override
   ColorExtension copyWith({
@@ -107,6 +121,7 @@ class ColorExtension extends ThemeExtension<ColorExtension> {
     ColorBorder? border,
     ColorBackground? background,
     ColorStatus? status,
+    ColorAccent? accent,
   }) {
     return ColorExtension._(
       brightness: brightness,
@@ -115,6 +130,7 @@ class ColorExtension extends ThemeExtension<ColorExtension> {
       border: border ?? this.border,
       background: background ?? this.background,
       status: status ?? this.status,
+      accent: accent ?? this.accent,
     );
   }
 
@@ -131,6 +147,30 @@ class ColorExtension extends ThemeExtension<ColorExtension> {
       border: ColorBorder._lerp(border, other.border, t),
       background: ColorBackground._lerp(background, other.background, t),
       status: ColorStatus._lerp(status, other.status, t),
+      accent: ColorAccent._lerp(accent, other.accent, t),
+    );
+  }
+}
+
+final class ColorAccent {
+  const ColorAccent._({
+    required this.purple,
+    required this.purpleTint,
+    required this.gold,
+    required this.goldTint,
+  });
+
+  final Color purple;
+  final Color purpleTint;
+  final Color gold;
+  final Color goldTint;
+
+  static ColorAccent _lerp(ColorAccent a, ColorAccent b, double t) {
+    return ColorAccent._(
+      purple: Color.lerp(a.purple, b.purple, t)!,
+      purpleTint: Color.lerp(a.purpleTint, b.purpleTint, t)!,
+      gold: Color.lerp(a.gold, b.gold, t)!,
+      goldTint: Color.lerp(a.goldTint, b.goldTint, t)!,
     );
   }
 }

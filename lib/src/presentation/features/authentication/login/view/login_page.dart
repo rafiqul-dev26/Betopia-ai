@@ -3,13 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/base/result.dart';
-import '../../../../../core/di/dependency_injection.dart';
 import '../../../../../core/extensions/localization.dart';
 import '../../../../../domain/failures/business_failure.dart';
-import '../../../../core/application_state/onboarding_status_provider/onboarding_status_provider.dart';
-import '../../../../core/application_state/session_status_provider/session_status_provider.dart';
 import '../../../../core/failure/business_failure_ui_mapper.dart';
 import '../../../../core/router/routes.dart';
+import '../../../../core/theme/theme.dart';
 import '../../../onboarding/widgets/betopia_auth_card.dart';
 import '../../../onboarding/widgets/betopia_hero_view.dart';
 import '../riverpod/login_provider.dart';
@@ -39,20 +37,20 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         case AsyncError(error: final BusinessFailure failure):
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              backgroundColor: const Color(0xFFE03131),
+              backgroundColor: context.color.status.danger,
               content: Text(
                 BusinessFailureUIMapper.map(failure, context.locale).message,
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(color: context.color.text.defaultValue),
               ),
             ),
           );
         case AsyncError():
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              backgroundColor: const Color(0xFFE03131),
+              backgroundColor: context.color.status.danger,
               content: Text(
                 BusinessFailureUIMapper.unexpected(context.locale).message,
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(color: context.color.text.defaultValue),
               ),
             ),
           );
@@ -74,11 +72,11 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
     if (email.isEmpty || password.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          backgroundColor: Color(0xFF262833),
+        SnackBar(
+          backgroundColor: context.color.background.surface,
           content: Text(
-            'Please enter both work email and password',
-            style: TextStyle(color: Colors.white),
+            context.locale.enterWorkEmailAndPassword,
+            style: TextStyle(color: context.color.text.defaultValue),
           ),
         ),
       );
@@ -104,9 +102,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   Widget build(BuildContext context) {
     final state = ref.watch(loginProvider);
     final isWideScreen = MediaQuery.of(context).size.width >= 850;
+    final colors = context.color;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF0C0D11),
+      backgroundColor: colors.background.canvas,
       body: isWideScreen
           ? Row(
               children: [
@@ -116,7 +115,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 ),
                 Container(
                   width: 1,
-                  color: const Color(0xFF1F212B),
+                  color: colors.border.subtle,
                 ),
                 Expanded(
                   flex: 5,
@@ -145,3 +144,4 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     );
   }
 }
+

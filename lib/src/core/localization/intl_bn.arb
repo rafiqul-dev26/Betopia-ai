@@ -100,6 +100,104 @@
     "failureUnexpected": "কিছু একটা ভুল হয়েছে।",
     "retry": "আবার চেষ্টা করুন",
     "signInAgain": "আবার সাইন ইন করুন",
-    "appTitle": "ফ্লাটার টেমপ্লেট",
-    "somethingWentWrong": "কিছু একটা ভুল হয়েছে।"
+    "somethingWentWrong": "কিছু একটা ভুল হয়েছে।",
+    "beta": "BETA",
+    "heroHeadlinePrefix": "ইন্টেলিজেন্সের ",
+    "heroHeadlineGradient": "চিন্তার গতি।",
+    "heroSubtitle": "যুক্তি, কোড, ডকুমেন্টস, ছবি এবং ভয়েস — সঠিক ইঞ্জিনে স্বয়ংক্রিয়ভাবে পরিচালিত।",
+    "intelligenceLayer": "ইন্টেলিজেন্স লেয়ার",
+    "intelligenceLayerDesc": "রিয়েল টাইমে ফ্রন্টিয়ার মডেলগুলির মধ্যে অভিযোজিত রাউটিং",
+    "zeroDataRetention": "জিরো ডেটা রিটেনশন",
+    "zeroDataRetentionDesc": "ক্ষণস্থায়ী মেমরি বিচ্ছিন্নতা সহ এন্টারপ্রাইজ-গ্রেড গোপনীয়তা",
+    "activeEnterpriseEngines": "সক্রিয় এন্টারপ্রাইজ ইঞ্জিন",
+    "welcomeBack": "স্বাগতম",
+    "welcomeBackSubtitle": "আপনার কথোপকথন শুরু করতে সাইন ইন করুন, যেখানে আপনি ছেড়েছিলেন।",
+    "signInWithGoogle": "Google দিয়ে সাইন ইন করুন",
+    "logInWithSso": "Betopia SSO দিয়ে লগ ইন করুন",
+    "orSignInWithEmail": "অথবা ইমেইল দিয়ে সাইন ইন করুন",
+    "workEmail": "কাজের ইমেইল",
+    "workEmailHint": "name@company.com",
+    "enterWorkEmailAndPassword": "অনুগ্রহ করে কাজের ইমেইল এবং পাসওয়ার্ড দুটিই লিখুন",
+    "signUpFree": "বিনামূল্যে সাইন আপ করুন",
+    "helloGreeting": "হ্যালো, {name}",
+    "@helloGreeting": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "homeSubtitle": "বুদ্ধিমান কথোপকথন, তাদের জন্য তৈরি যারা অন্যরা কেবল কল্পনা করে তা তৈরি করে।",
+    "whatWillYouCreateToday": "আজ আপনি কি তৈরি করবেন?",
+    "addFilesAndPhotos": "ফাইল ও ছবি যোগ করুন",
+    "knowledgeBase": "নলেজ বেস",
+    "toolsAndSkills": "টুলস ও স্কিলস",
+    "comingSoon": "শীঘ্রই আসছে",
+    "deepResearch": "ডিপ রিসার্চ",
+    "fastCreative": "ফাস্ট ক্রিয়েটিভ",
+    "codeReasoning": "কোড ও যুক্তি",
+    "visionMultimodal": "ভিশন ও মাল্টিমোডাল",
+    "disclaimerBetopiaAi": "Betopia AI ভুল করতে পারে। Betopia আপনার ওয়ার্কস্পেস ডেটা মডেল প্রশিক্ষণের জন্য ব্যবহার করে না।",
+    "signOutConfirmTitle": "সাইন আউট",
+    "signOutConfirmDescription": "আপনি কি নিশ্চিত যে আপনি Betopia AI থেকে সাইন আউট করতে চান?",
+    "signingOut": "সাইন আউট হচ্ছে...",
+    "yesSignOut": "হ্যাঁ, সাইন আউট করুন",
+    "cancel": "বাতিল",
+    "accountSettings": "অ্যাকাউন্ট সেটিংস",
+    "newChat": "নতুন চ্যাট",
+    "today": "আজ",
+    "yesterday": "গতকাল",
+    "previous7Days": "গত ৭ দিন",
+    "openSidebar": "সাইডবার খুলুন",
+    "collapseSidebar": "সাইডবার বন্ধ করুন",
+    "processingQuery": "প্রসেসিং: \"{query}\" Betopia AI এর সাথে ({mode})",
+    "@processingQuery": {
+        "placeholders": {
+            "query": {
+                "type": "String"
+            },
+            "mode": {
+                "type": "String"
+            }
+        }
+    },
+    "loadedConversation": "চ্যাট কথোপকথন লোড হয়েছে #{id}",
+    "@loadedConversation": {
+        "placeholders": {
+            "id": {
+                "type": "String"
+            }
+        }
+    },
+    "chatHistory": "চ্যাট ইতিহাস",
+    "workspace": "ওয়ার্কস্পেস",
+    "tools": "টুলস",
+    "connectors": "কানেক্টরস",
+    "library": "লাইব্রেরি",
+    "assetLibrary": "অ্যাসেট লাইব্রেরি",
+    "temporalArchive": "টেম্পোরাল আর্কাইভ",
+    "standardRole": "স্ট্যান্ডার্ড",
+    "heroHeadlineSuffix": " দ্রুততর।",
+    "featureFrontierModels": "১০+ ফ্রন্টিয়ার এআই মডেল, এক চ্যাটে",
+    "featureStreaming": "রিয়েল-টাইম স্ট্রিমিং রেসপন্স",
+    "featureEnterpriseSecurity": "এন্টারপ্রাইজ-গ্রেড নিরাপত্তা",
+    "getStarted": "শুরু করুন",
+    "footerCopyright": "© ২০২৬ Betopia AI · শর্তাবলী · গোপনীয়তা",
+    "passwordLabel": "পাসওয়ার্ড",
+    "passwordHint": "••••••••",
+    "forgotPassword": "পাসওয়ার্ড ভুলে গেছেন?",
+    "signIn": "সাইন ইন",
+    "dontHaveAccount": "অ্যাকাউন্ট নেই? ",
+    "slides": "স্লাইডস",
+    "code": "কোড",
+    "imageGen": "ছবি তৈরি",
+    "more": "আরও",
+    "soon": "শীঘ্রই",
+    "auto": "অটো",
+    "agent": "এজেন্ট",
+    "commands": "কমান্ড",
+    "signOut": "সাইন আউট"
 }
+
+
+

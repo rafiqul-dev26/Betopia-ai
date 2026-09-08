@@ -100,6 +100,104 @@
     "failureUnexpected": "Something went wrong.",
     "retry": "Try again",
     "signInAgain": "Sign in again",
-    "appTitle": "Flutter Template",
-    "somethingWentWrong": "Something went wrong."
+    "somethingWentWrong": "Something went wrong.",
+    "beta": "BETA",
+    "heroHeadlinePrefix": "Intelligence at the ",
+    "heroHeadlineGradient": "speed of thought.",
+    "heroSubtitle": "Reasoning, code, documents, images, and voice — routed to the right engine, automatically.",
+    "intelligenceLayer": "Intelligence Layer",
+    "intelligenceLayerDesc": "Adaptive routing across frontier models in real time",
+    "zeroDataRetention": "Zero Data Retention",
+    "zeroDataRetentionDesc": "Enterprise-grade privacy with ephemeral memory isolation",
+    "activeEnterpriseEngines": "Active Enterprise Engines",
+    "welcomeBack": "Welcome back",
+    "welcomeBackSubtitle": "Sign in to pick up your conversations, right where you left off.",
+    "signInWithGoogle": "Sign in with Google",
+    "logInWithSso": "Log in with Betopia SSO",
+    "orSignInWithEmail": "OR SIGN IN WITH EMAIL",
+    "workEmail": "Work Email",
+    "workEmailHint": "name@company.com",
+    "enterWorkEmailAndPassword": "Please enter both work email and password",
+    "signUpFree": "Sign up free",
+    "helloGreeting": "Hello, {name}",
+    "@helloGreeting": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "homeSubtitle": "Intelligent conversation, crafted for those who build what others only imagine.",
+    "whatWillYouCreateToday": "What will you create today?",
+    "addFilesAndPhotos": "Add Files & Photos",
+    "knowledgeBase": "Knowledge Base",
+    "toolsAndSkills": "Tools & Skills",
+    "comingSoon": "Coming Soon",
+    "deepResearch": "Deep Research",
+    "fastCreative": "Fast Creative",
+    "codeReasoning": "Code & Reasoning",
+    "visionMultimodal": "Vision & Multimodal",
+    "disclaimerBetopiaAi": "Betopia AI can make mistakes. Betopia doesn't use your workspace data to train its models.",
+    "signOutConfirmTitle": "Sign Out",
+    "signOutConfirmDescription": "Are you sure you want to sign out of Betopia AI?",
+    "signingOut": "Signing out...",
+    "yesSignOut": "Yes, Sign Out",
+    "cancel": "Cancel",
+    "accountSettings": "Account Settings",
+    "newChat": "New Chat",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "previous7Days": "Previous 7 Days",
+    "openSidebar": "Open sidebar",
+    "collapseSidebar": "Collapse sidebar",
+    "processingQuery": "Processing: \"{query}\" with Betopia AI ({mode})",
+    "@processingQuery": {
+        "placeholders": {
+            "query": {
+                "type": "String"
+            },
+            "mode": {
+                "type": "String"
+            }
+        }
+    },
+    "loadedConversation": "Loaded chat conversation #{id}",
+    "@loadedConversation": {
+        "placeholders": {
+            "id": {
+                "type": "String"
+            }
+        }
+    },
+    "chatHistory": "CHAT HISTORY",
+    "workspace": "WORKSPACE",
+    "tools": "Tools",
+    "connectors": "Connectors",
+    "library": "LIBRARY",
+    "assetLibrary": "Asset Library",
+    "temporalArchive": "Temporal Archive",
+    "standardRole": "standard",
+    "heroHeadlineSuffix": " faster.",
+    "featureFrontierModels": "10+ frontier AI models, one chat",
+    "featureStreaming": "Real-time streaming responses",
+    "featureEnterpriseSecurity": "Enterprise-grade security",
+    "getStarted": "Get Started",
+    "footerCopyright": "© 2026 Betopia AI · Terms · Privacy",
+    "passwordLabel": "PASSWORD",
+    "passwordHint": "••••••••",
+    "forgotPassword": "Forgot password?",
+    "signIn": "Sign In",
+    "dontHaveAccount": "Don't have an account? ",
+    "slides": "Slides",
+    "code": "Code",
+    "imageGen": "Image Gen",
+    "more": "More",
+    "soon": "SOON",
+    "auto": "AUTO",
+    "agent": "AGENT",
+    "commands": "commands",
+    "signOut": "Sign Out"
 }
+
+
+

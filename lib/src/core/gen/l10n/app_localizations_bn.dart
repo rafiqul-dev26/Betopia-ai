@@ -85,7 +85,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get rememberMe => 'আমাকে মনে রাখুন';
 
   @override
-  String get forgotPassword => 'পাসওয়ার্ড ভুলে গেছেন';
+  String get forgotPassword => 'পাসওয়ার্ড ভুলে গেছেন?';
 
   @override
   String get backToLogin => 'লগইনে ফিরে যান';
@@ -238,8 +238,223 @@ class AppLocalizationsBn extends AppLocalizations {
   String get signInAgain => 'আবার সাইন ইন করুন';
 
   @override
-  String get appTitle => 'ফ্লাটার টেমপ্লেট';
+  String get somethingWentWrong => 'কিছু একটা ভুল হয়েছে।';
 
   @override
-  String get somethingWentWrong => 'কিছু একটা ভুল হয়েছে।';
+  String get beta => 'BETA';
+
+  @override
+  String get heroHeadlinePrefix => 'ইন্টেলিজেন্সের ';
+
+  @override
+  String get heroHeadlineGradient => 'চিন্তার গতি।';
+
+  @override
+  String get heroSubtitle =>
+      'যুক্তি, কোড, ডকুমেন্টস, ছবি এবং ভয়েস — সঠিক ইঞ্জিনে স্বয়ংক্রিয়ভাবে পরিচালিত।';
+
+  @override
+  String get intelligenceLayer => 'ইন্টেলিজেন্স লেয়ার';
+
+  @override
+  String get intelligenceLayerDesc =>
+      'রিয়েল টাইমে ফ্রন্টিয়ার মডেলগুলির মধ্যে অভিযোজিত রাউটিং';
+
+  @override
+  String get zeroDataRetention => 'জিরো ডেটা রিটেনশন';
+
+  @override
+  String get zeroDataRetentionDesc =>
+      'ক্ষণস্থায়ী মেমরি বিচ্ছিন্নতা সহ এন্টারপ্রাইজ-গ্রেড গোপনীয়তা';
+
+  @override
+  String get activeEnterpriseEngines => 'সক্রিয় এন্টারপ্রাইজ ইঞ্জিন';
+
+  @override
+  String get welcomeBack => 'স্বাগতম';
+
+  @override
+  String get welcomeBackSubtitle =>
+      'আপনার কথোপকথন শুরু করতে সাইন ইন করুন, যেখানে আপনি ছেড়েছিলেন।';
+
+  @override
+  String get signInWithGoogle => 'Google দিয়ে সাইন ইন করুন';
+
+  @override
+  String get logInWithSso => 'Betopia SSO দিয়ে লগ ইন করুন';
+
+  @override
+  String get orSignInWithEmail => 'অথবা ইমেইল দিয়ে সাইন ইন করুন';
+
+  @override
+  String get workEmail => 'কাজের ইমেইল';
+
+  @override
+  String get workEmailHint => 'name@company.com';
+
+  @override
+  String get enterWorkEmailAndPassword =>
+      'অনুগ্রহ করে কাজের ইমেইল এবং পাসওয়ার্ড দুটিই লিখুন';
+
+  @override
+  String get signUpFree => 'বিনামূল্যে সাইন আপ করুন';
+
+  @override
+  String helloGreeting(String name) {
+    return 'হ্যালো, $name';
+  }
+
+  @override
+  String get homeSubtitle =>
+      'বুদ্ধিমান কথোপকথন, তাদের জন্য তৈরি যারা অন্যরা কেবল কল্পনা করে তা তৈরি করে।';
+
+  @override
+  String get whatWillYouCreateToday => 'আজ আপনি কি তৈরি করবেন?';
+
+  @override
+  String get addFilesAndPhotos => 'ফাইল ও ছবি যোগ করুন';
+
+  @override
+  String get knowledgeBase => 'নলেজ বেস';
+
+  @override
+  String get toolsAndSkills => 'টুলস ও স্কিলস';
+
+  @override
+  String get comingSoon => 'শীঘ্রই আসছে';
+
+  @override
+  String get deepResearch => 'ডিপ রিসার্চ';
+
+  @override
+  String get fastCreative => 'ফাস্ট ক্রিয়েটিভ';
+
+  @override
+  String get codeReasoning => 'কোড ও যুক্তি';
+
+  @override
+  String get visionMultimodal => 'ভিশন ও মাল্টিমোডাল';
+
+  @override
+  String get disclaimerBetopiaAi =>
+      'Betopia AI ভুল করতে পারে। Betopia আপনার ওয়ার্কস্পেস ডেটা মডেল প্রশিক্ষণের জন্য ব্যবহার করে না।';
+
+  @override
+  String get signOutConfirmTitle => 'সাইন আউট';
+
+  @override
+  String get signOutConfirmDescription =>
+      'আপনি কি নিশ্চিত যে আপনি Betopia AI থেকে সাইন আউট করতে চান?';
+
+  @override
+  String get signingOut => 'সাইন আউট হচ্ছে...';
+
+  @override
+  String get yesSignOut => 'হ্যাঁ, সাইন আউট করুন';
+
+  @override
+  String get cancel => 'বাতিল';
+
+  @override
+  String get accountSettings => 'অ্যাকাউন্ট সেটিংস';
+
+  @override
+  String get newChat => 'নতুন চ্যাট';
+
+  @override
+  String get today => 'আজ';
+
+  @override
+  String get yesterday => 'গতকাল';
+
+  @override
+  String get previous7Days => 'গত ৭ দিন';
+
+  @override
+  String get openSidebar => 'সাইডবার খুলুন';
+
+  @override
+  String get collapseSidebar => 'সাইডবার বন্ধ করুন';
+
+  @override
+  String processingQuery(String query, String mode) {
+    return 'প্রসেসিং: \"$query\" Betopia AI এর সাথে ($mode)';
+  }
+
+  @override
+  String loadedConversation(String id) {
+    return 'চ্যাট কথোপকথন লোড হয়েছে #$id';
+  }
+
+  @override
+  String get chatHistory => 'চ্যাট ইতিহাস';
+
+  @override
+  String get workspace => 'ওয়ার্কস্পেস';
+
+  @override
+  String get tools => 'টুলস';
+
+  @override
+  String get connectors => 'কানেক্টরস';
+
+  @override
+  String get library => 'লাইব্রেরি';
+
+  @override
+  String get assetLibrary => 'অ্যাসেট লাইব্রেরি';
+
+  @override
+  String get temporalArchive => 'টেম্পোরাল আর্কাইভ';
+
+  @override
+  String get standardRole => 'স্ট্যান্ডার্ড';
+
+  @override
+  String get heroHeadlineSuffix => ' দ্রুততর।';
+
+  @override
+  String get featureFrontierModels => '১০+ ফ্রন্টিয়ার এআই মডেল, এক চ্যাটে';
+
+  @override
+  String get featureStreaming => 'রিয়েল-টাইম স্ট্রিমিং রেসপন্স';
+
+  @override
+  String get featureEnterpriseSecurity => 'এন্টারপ্রাইজ-গ্রেড নিরাপত্তা';
+
+  @override
+  String get footerCopyright => '© ২০২৬ Betopia AI · শর্তাবলী · গোপনীয়তা';
+
+  @override
+  String get passwordLabel => 'পাসওয়ার্ড';
+
+  @override
+  String get passwordHint => '••••••••';
+
+  @override
+  String get slides => 'স্লাইডস';
+
+  @override
+  String get code => 'কোড';
+
+  @override
+  String get imageGen => 'ছবি তৈরি';
+
+  @override
+  String get more => 'আরও';
+
+  @override
+  String get soon => 'শীঘ্রই';
+
+  @override
+  String get auto => 'অটো';
+
+  @override
+  String get agent => 'এজেন্ট';
+
+  @override
+  String get commands => 'কমান্ড';
+
+  @override
+  String get signOut => 'সাইন আউট';
 }

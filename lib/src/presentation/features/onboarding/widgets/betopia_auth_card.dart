@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../../../core/extensions/localization.dart';
+import '../../../core/theme/theme.dart';
 import '../../../core/widgets/betopia_logo.dart';
 import '../../../core/widgets/google_icon.dart';
 
@@ -38,8 +40,11 @@ class _BetopiaAuthCardState extends State<BetopiaAuthCard> {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+    final locale = context.locale;
+
     return Container(
-      color: const Color(0xFF0C0D11),
+      color: colors.background.canvas,
       child: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 28),
@@ -56,24 +61,23 @@ class _BetopiaAuthCardState extends State<BetopiaAuthCard> {
                   const Gap(28),
                 ],
                 // Title
-                const Text(
-                  'Welcome back',
+                Text(
+                  locale.welcomeBack,
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.w700,
-                    color: Colors.white,
+                    color: colors.text.defaultValue,
                     letterSpacing: -0.8,
                   ),
                 ),
                 const Gap(8),
                 // Subtitle
-                const Text(
-                  'Sign in to pick up your conversations, '
-                  'right where you left off.',
+                Text(
+                  locale.welcomeBackSubtitle,
                   style: TextStyle(
                     fontSize: 14,
                     height: 1.45,
-                    color: Color(0xFF9CA3AF),
+                    color: colors.text.muted,
                   ),
                 ),
                 const Gap(28),
@@ -81,39 +85,39 @@ class _BetopiaAuthCardState extends State<BetopiaAuthCard> {
                 // Social Sign-in Buttons
                 _SocialAuthButton(
                   icon: const GoogleIcon(size: 18),
-                  label: 'Sign in with Google',
+                  label: locale.signInWithGoogle,
                   onTap: widget.onGoogleSignIn ?? () {},
                 ),
                 const Gap(12),
                 _SocialAuthButton(
                   icon: const _SsoIcon(),
-                  label: 'Log in with Betopia SSO',
+                  label: locale.logInWithSso,
                   onTap: widget.onSsoSignIn ?? () {},
                 ),
                 const Gap(24),
 
                 // Divider
-                const _AuthDivider(label: 'OR SIGN IN WITH EMAIL'),
+                _AuthDivider(label: locale.orSignInWithEmail),
                 const Gap(24),
 
                 // Work Email Field
-                const Text(
-                  'WORK EMAIL',
+                Text(
+                  locale.workEmail,
                   style: TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.w600,
                     letterSpacing: 0.8,
-                    color: Color(0xFF9CA3AF),
+                    color: colors.text.muted,
                   ),
                 ),
                 const Gap(8),
                 _AuthTextField(
                   controller: widget.emailController,
-                  hintText: 'name@enterprise.com',
-                  prefixIcon: const Icon(
+                  hintText: locale.workEmailHint,
+                  prefixIcon: Icon(
                     Icons.alternate_email_rounded,
                     size: 18,
-                    color: Color(0xFF6B7280),
+                    color: colors.text.muted,
                   ),
                   keyboardType: TextInputType.emailAddress,
                 ),
@@ -123,23 +127,23 @@ class _BetopiaAuthCardState extends State<BetopiaAuthCard> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'PASSWORD',
+                    Text(
+                      locale.passwordLabel,
                       style: TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.w600,
                         letterSpacing: 0.8,
-                        color: Color(0xFF9CA3AF),
+                        color: colors.text.muted,
                       ),
                     ),
                     GestureDetector(
                       onTap: widget.onForgotPassword,
-                      child: const Text(
-                        'Forgot password?',
+                      child: Text(
+                        locale.forgotPassword,
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
-                          color: Color(0xFFFF640A),
+                          color: colors.primary.defaultValue,
                         ),
                       ),
                     ),
@@ -148,12 +152,12 @@ class _BetopiaAuthCardState extends State<BetopiaAuthCard> {
                 const Gap(8),
                 _AuthTextField(
                   controller: widget.passwordController,
-                  hintText: '••••••••',
+                  hintText: locale.passwordHint,
                   obscureText: _obscurePassword,
-                  prefixIcon: const Icon(
+                  prefixIcon: Icon(
                     Icons.lock_outline_rounded,
                     size: 18,
-                    color: Color(0xFF6B7280),
+                    color: colors.text.muted,
                   ),
                   suffixIcon: GestureDetector(
                     onTap: () {
@@ -164,7 +168,7 @@ class _BetopiaAuthCardState extends State<BetopiaAuthCard> {
                           ? Icons.visibility_outlined
                           : Icons.visibility_off_outlined,
                       size: 18,
-                      color: const Color(0xFF6B7280),
+                      color: colors.text.muted,
                     ),
                   ),
                 ),
@@ -177,41 +181,42 @@ class _BetopiaAuthCardState extends State<BetopiaAuthCard> {
                   child: ElevatedButton(
                     onPressed: widget.isLoading ? null : widget.onSignIn,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFFF640A),
-                      foregroundColor: Colors.white,
+                      backgroundColor: colors.primary.defaultValue,
+                      foregroundColor: colors.text.defaultValue,
                       disabledBackgroundColor:
-                          const Color(0xFFFF640A).withValues(alpha: 0.5),
+                          colors.primary.defaultValue.withValues(alpha: 0.5),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                       elevation: 0,
                     ),
                     child: widget.isLoading
-                        ? const SizedBox(
+                        ? SizedBox(
                             width: 20,
                             height: 20,
                             child: CircularProgressIndicator(
                               strokeWidth: 2,
-                              valueColor:
-                                  AlwaysStoppedAnimation<Color>(Colors.white),
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                colors.text.defaultValue,
+                              ),
                             ),
                           )
-                        : const Row(
+                        : Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Sign In',
+                                locale.signIn,
                                 style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.w600,
-                                  color: Colors.white,
+                                  color: colors.text.defaultValue,
                                 ),
                               ),
-                              Gap(8),
+                              const Gap(8),
                               Icon(
                                 Icons.arrow_forward_rounded,
                                 size: 18,
-                                color: Colors.white,
+                                color: colors.text.defaultValue,
                               ),
                             ],
                           ),
@@ -224,17 +229,17 @@ class _BetopiaAuthCardState extends State<BetopiaAuthCard> {
                   child: GestureDetector(
                     onTap: widget.onSignUp,
                     child: RichText(
-                      text: const TextSpan(
+                      text: TextSpan(
                         style: TextStyle(
                           fontSize: 13,
-                          color: Color(0xFF9CA3AF),
+                          color: colors.text.muted,
                         ),
                         children: [
-                          TextSpan(text: "Don't have an account? "),
+                          TextSpan(text: locale.dontHaveAccount),
                           TextSpan(
-                            text: 'Sign up free',
+                            text: locale.signUpFree,
                             style: TextStyle(
-                              color: Color(0xFFFF640A),
+                              color: colors.primary.defaultValue,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -265,14 +270,16 @@ class _SocialAuthButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+
     return SizedBox(
       width: double.infinity,
       height: 46,
       child: OutlinedButton(
         onPressed: onTap,
         style: OutlinedButton.styleFrom(
-          backgroundColor: const Color(0xFF16181F),
-          side: const BorderSide(color: Color(0xFF262833), width: 1.0),
+          backgroundColor: colors.background.surface,
+          side: BorderSide(color: colors.border.defaultValue, width: 1.0),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
@@ -285,10 +292,10 @@ class _SocialAuthButton extends StatelessWidget {
             const Gap(12),
             Text(
               label,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
-                color: Color(0xFFE5E7EB),
+                color: colors.text.defaultValue,
                 letterSpacing: -0.1,
               ),
             ),
@@ -318,19 +325,21 @@ class _AuthTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0xFF16181F),
+        color: colors.background.surface,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: const Color(0xFF262833), width: 1.0),
+        border: Border.all(color: colors.border.defaultValue, width: 1.0),
       ),
       child: TextField(
         controller: controller,
         obscureText: obscureText,
         keyboardType: keyboardType,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 14,
-          color: Colors.white,
+          color: colors.text.defaultValue,
         ),
         decoration: InputDecoration(
           isDense: true,
@@ -339,9 +348,9 @@ class _AuthTextField extends StatelessWidget {
             vertical: 14,
           ),
           hintText: hintText,
-          hintStyle: const TextStyle(
+          hintStyle: TextStyle(
             fontSize: 14,
-            color: Color(0xFF4B5563),
+            color: colors.text.muted.withValues(alpha: 0.6),
           ),
           prefixIcon: prefixIcon != null
               ? Padding(
@@ -379,11 +388,13 @@ class _AuthDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+
     return Row(
       children: [
-        const Expanded(
+        Expanded(
           child: Divider(
-            color: Color(0xFF242731),
+            color: colors.border.defaultValue,
             thickness: 0.9,
           ),
         ),
@@ -391,17 +402,17 @@ class _AuthDivider extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 14),
           child: Text(
             label,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.w600,
               letterSpacing: 0.6,
-              color: Color(0xFF6B7280),
+              color: colors.text.muted,
             ),
           ),
         ),
-        const Expanded(
+        Expanded(
           child: Divider(
-            color: Color(0xFF242731),
+            color: colors.border.defaultValue,
             thickness: 0.9,
           ),
         ),
@@ -415,23 +426,26 @@ class _SsoIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+
     return Container(
       width: 18,
       height: 18,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: const Color(0xFF242731),
+        color: colors.border.defaultValue,
         borderRadius: BorderRadius.circular(4),
       ),
-      child: const Text(
+      child: Text(
         'b',
         style: TextStyle(
           fontSize: 12,
           fontWeight: FontWeight.w800,
-          color: Colors.white,
+          color: colors.text.defaultValue,
           height: 1.0,
         ),
       ),
     );
   }
 }
+

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/extensions/localization.dart';
+import '../theme/theme.dart';
 
 class NavigationShell extends StatefulWidget {
   const NavigationShell({super.key, required this.statefulNavigationShell});
@@ -15,22 +16,24 @@ class NavigationShell extends StatefulWidget {
 class _NavigationShellState extends State<NavigationShell> {
   @override
   Widget build(BuildContext context) {
+    final colors = context.color;
+
     return Scaffold(
-      backgroundColor: const Color(0xFF0C0D11),
+      backgroundColor: colors.background.canvas,
       body: widget.statefulNavigationShell,
       bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          color: Color(0xFF0C0D11),
+        decoration: BoxDecoration(
+          color: colors.background.canvas,
           border: Border(
-            top: BorderSide(color: Color(0xFF1E212B), width: 0.8),
+            top: BorderSide(color: colors.border.subtle, width: 0.8),
           ),
         ),
         child: BottomNavigationBar(
-          backgroundColor: const Color(0xFF0C0D11),
+          backgroundColor: colors.background.canvas,
           elevation: 0,
           currentIndex: widget.statefulNavigationShell.currentIndex,
-          selectedItemColor: const Color(0xFFFF640A),
-          unselectedItemColor: const Color(0xFF6B7280),
+          selectedItemColor: colors.primary.defaultValue,
+          unselectedItemColor: colors.text.muted,
           selectedFontSize: 12,
           unselectedFontSize: 12,
           type: BottomNavigationBarType.fixed,
@@ -54,3 +57,4 @@ class _NavigationShellState extends State<NavigationShell> {
     );
   }
 }
+

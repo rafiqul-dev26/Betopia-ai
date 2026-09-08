@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../../core/extensions/localization.dart';
+import '../theme/theme.dart';
+
 /// Betopia AI official brand logo with optional BETA badge.
 class BetopiaLogo extends StatelessWidget {
   const BetopiaLogo({
@@ -21,7 +24,11 @@ class BetopiaLogo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         // Stylized 'b' brand icon
-        BetopiaIcon(size: iconSize),
+        BetopiaIcon(
+          size: iconSize,
+          primaryColor: context.color.primary.defaultValue,
+          strokeColor: context.color.text.defaultValue,
+        ),
         const Gap(10),
         // Brand name
         RichText(
@@ -30,16 +37,16 @@ class BetopiaLogo extends StatelessWidget {
               fontSize: fontSize,
               fontWeight: FontWeight.w700,
               letterSpacing: -0.5,
-              color: Colors.white,
+              color: context.color.text.defaultValue,
               fontFamily: 'Inter',
             ),
-            children: const [
-              TextSpan(text: 'Betopia'),
+            children: [
+              const TextSpan(text: 'Betopia'),
               TextSpan(
                 text: 'AI',
                 style: TextStyle(
                   fontWeight: FontWeight.w800,
-                  color: Colors.white,
+                  color: context.color.text.defaultValue,
                 ),
               ),
             ],
@@ -50,19 +57,19 @@ class BetopiaLogo extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2.5),
             decoration: BoxDecoration(
-              color: const Color(0xFF242731),
+              color: context.color.border.defaultValue,
               borderRadius: BorderRadius.circular(6),
               border: Border.all(
-                color: const Color(0xFF374151).withValues(alpha: 0.6),
+                color: context.color.border.subtle,
                 width: 0.8,
               ),
             ),
-            child: const Text(
-              'BETA',
+            child: Text(
+              context.locale.beta,
               style: TextStyle(
                 fontSize: 10,
                 fontWeight: FontWeight.w700,
-                color: Color(0xFF9CA3AF),
+                color: context.color.text.muted,
                 letterSpacing: 0.6,
               ),
             ),
@@ -75,23 +82,44 @@ class BetopiaLogo extends StatelessWidget {
 
 /// Standalone Betopia symbol / icon mark.
 class BetopiaIcon extends StatelessWidget {
-  const BetopiaIcon({required this.size});
+  const BetopiaIcon({
+    super.key,
+    required this.size,
+    this.primaryColor,
+    this.strokeColor,
+  });
 
   final double size;
+  final Color? primaryColor;
+  final Color? strokeColor;
 
   @override
   Widget build(BuildContext context) {
+    final primary = primaryColor ?? context.color.primary.defaultValue;
+    final stroke = strokeColor ?? context.color.text.defaultValue;
+
     return SizedBox(
       width: size,
       height: size,
       child: CustomPaint(
-        painter: _BetopiaIconPainter(),
+        painter: _BetopiaIconPainter(
+          primaryColor: primary,
+          strokeColor: stroke,
+        ),
       ),
     );
   }
 }
 
 class _BetopiaIconPainter extends CustomPainter {
+  const _BetopiaIconPainter({
+    required this.primaryColor,
+    required this.strokeColor,
+  });
+
+  final Color primaryColor;
+  final Color strokeColor;
+
   @override
   void paint(Canvas canvas, Size size) {
     final w = size.width;
@@ -99,14 +127,14 @@ class _BetopiaIconPainter extends CustomPainter {
 
     // Stroke paint for the outline loop
     final strokePaint = Paint()
-      ..color = Colors.white
+      ..color = strokeColor
       ..style = PaintingStyle.stroke
       ..strokeWidth = w * 0.12
       ..strokeCap = StrokeCap.round
       ..strokeJoin = StrokeJoin.round;
 
     final fillPaint = Paint()
-      ..color = const Color(0xFFFF640A)
+      ..color = primaryColor
       ..style = PaintingStyle.fill;
 
     // Draw stylized modern 'b' shape
@@ -129,5 +157,7 @@ class _BetopiaIconPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+  bool shouldRepaint(covariant _BetopiaIconPainter oldDelegate) =>
+      oldDelegate.primaryColor != primaryColor ||
+      oldDelegate.strokeColor != strokeColor;
 }

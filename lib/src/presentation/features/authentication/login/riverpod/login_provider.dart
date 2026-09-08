@@ -33,7 +33,7 @@ class Login extends _$Login {
       case Success():
         ref.read(markOnboardingCompletedUseCaseProvider).call();
         ref.invalidate(onboardingStatusProvider);
-        await ref.refresh(sessionStatusProvider.future);
+        final _ = await ref.refresh(sessionStatusProvider.future);
         state = AsyncValue.data(result);
       case Error(:final error):
         state = AsyncValue.error(error, StackTrace.current);
